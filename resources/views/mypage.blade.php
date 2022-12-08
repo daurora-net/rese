@@ -44,7 +44,7 @@
           </div>
           <table class="reserves_card_tb">
             <tr>
-              <th>Shoth</th>
+              <th>Shop</th>
               <td>{{ $reservation->shop->name }}</td>
             </tr>
             <tr>
