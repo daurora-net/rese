@@ -1,0 +1,464 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #eee;
+}
+
+/* common */
+.container {
+  width: 1200px;
+  margin: 50px auto 0;
+  max-width: 85%;
+}
+
+:focus {
+  outline: none;
+}
+
+::placeholder {
+  color: #c8c8c8;
+}
+
+a:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+/* header */
+.top_nav {
+  width: 45px;
+  height: 45px;
+  background-color: #3560f6;
+}
+
+.header {
+  width: 170px;
+  display: inline-block;
+}
+
+.header_ttl {
+  color: #3560f6;
+  padding-left: 12px;
+  display: inline-block;
+  vertical-align: super;
+}
+
+.header_ttl img {
+  width: 100%;
+}
+
+/* shop */
+.main.shop {
+  margin-top: 3%;
+}
+
+.card_wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.card {
+  width: 24%;
+  margin: 0 0.5% 2%;
+  box-shadow: 2px 2px 6px #959595;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.card_img {
+  background-color: gray;
+  display: block;
+  height: 160px;
+  border-radius: 5px 5px 0 0;
+  width: 100%;
+  height: 11vw;
+  object-fit: cover;
+}
+
+.card_txt {
+  padding: 7%;
+  position: relative;
+}
+
+.card_name {
+  font-size: 1.3vw;
+  font-weight: bold;
+  line-height: 1.5vw;
+}
+
+.card_area {
+  font-size: 0.9vw;
+  display: inline;
+}
+
+.card_genre {
+  font-size: 0.9vw;
+  display: inline;
+}
+
+.like_icon {
+  position: absolute;
+  bottom: 15%;
+  right: 7%;
+  width: 2.3vw;
+  cursor: pointer;
+}
+
+.card_link {
+  display: block;
+  color: #fff;
+  background-color: #3560f6;
+  border-radius: 5px;
+  width: 80px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.95vw;
+  padding: 0.45vw 0 0.43vw;
+  margin-top: 1vw;
+}
+
+/* search */
+.search {
+  float: right;
+  box-shadow: 2px 2px 6px #959595;
+  border-radius: 5px;
+  padding: 0 13px;
+  background-color: #fff;
+  margin-top: 5px;
+}
+
+.search_form_bd {
+  background-color: #e7e7e7;
+  width: 1px;
+  height: 22px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 3px;
+}
+
+.search_select {
+  border: none;
+  color: #333;
+  width: 80px;
+  font-size: 12px;
+}
+
+.search_input {
+  line-height: 40px;
+  font-size: 13px;
+  border: none;
+  width: 200px;
+}
+
+.search_input_img {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+/* Mypage */
+.header.mypage {
+  width: 100%;
+}
+
+.main.mypage {
+  margin-top: 4%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card_header {
+  display: block;
+  margin-left: calc(100% - 55%);
+}
+
+.user_name {
+  font-size: 2.1vw;
+  font-weight: bold;
+}
+
+.my_reserve_wrap {
+  width: 38%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.my_reserve_wrap h2,
+.my_like_wrap h2 {
+  margin-bottom: 1.9vw;
+  font-size: 1.8vw;
+}
+
+.reserves_card {
+  background-color: #3560f6;
+  color: #fff;
+  padding: 7%;
+  box-shadow: 2px 2px 6px #959595;
+  border-radius: 5px;
+  line-height: 32px;
+  font-size: 1.1vw;
+  margin-bottom: 5%;
+}
+
+.btn_reserve_delete {
+  background: none;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.btn_reserve_delete img:hover {
+  opacity: .8;
+}
+
+.reserves_card_tb {
+  width: 100%;
+  line-height: 28px;
+}
+
+.reserves_card_tb th {
+  font-weight: normal;
+  text-align: left;
+  width: 27%;
+}
+
+.reserves_card_tb td {
+  margin-left: 20%;
+}
+
+.reserves_card_top {
+  display: flex;
+  justify-content: start;
+  margin-bottom: 5%;
+  align-items: center;
+}
+
+.reserves_card_time {
+  padding-right: 10%;
+}
+
+.reserves_card_top_txt {
+  width: 80%;
+}
+
+.reserves_card_close {}
+
+.my_like_wrap {
+  width: 55%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.card.mypage_card {
+  width: 46%;
+  margin: 0 0.5% 5%;
+}
+
+.card_wrap.mypage_card_wrap {
+  justify-content: space-between;
+}
+
+/* Detail */
+.main.detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.detail_shop_wrap {
+  width: 48%;
+}
+
+.detail_shop_top {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-top: 9%;
+}
+
+.btn_back {
+  background-color: #fff;
+  border: none;
+  box-shadow: 2px 2px 6px #959595;
+  border-radius: 5px;
+  padding: 3px 5px 0 4px;
+  margin-right: 12px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.btn_back:hover {
+  opacity: 0.8;
+}
+
+.detail_shop_name {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.detail_shop_img {
+  display: block;
+  max-width: 100%;
+  margin: 4.8% 0 5%;
+}
+
+.detail_area,
+.detail_genre {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.detail_overview {
+  font-size: 12px;
+  margin-top: 4%;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+}
+
+.detail_reserve_wrap {
+  width: 40%;
+  height: 480px;
+  vertical-align: top;
+  background-color: #3560f6;
+  box-shadow: 2px 2px 4px #959595;
+  border-radius: 5px;
+  padding: 2.5%;
+  position: relative;
+}
+
+.detail_resarve_ttl {
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 5%;
+}
+
+.detail_resarve_form {
+  color: #fff;
+}
+
+.resarve_input_date {
+  display: inline-block;
+  width: 120px;
+  padding: 4px 10px 3px 6px;
+  font-size: 11px;
+  border-radius: 4px;
+  border: none;
+}
+
+.time_select,
+.num_select {
+  display: block;
+  width: 96%;
+  padding: 5px 10px 6px 6px;
+  font-size: 11px;
+  border-radius: 4px;
+  border: none;
+  margin: 11px 0;
+}
+
+.reserves_result {
+  display: flex;
+  justify-content: start;
+  background-color: rgb(255 255 255 / 26%);
+  border-radius: 7px;
+  padding: 5%;
+  color: #fff;
+  margin-top: 5%;
+  width: 83%;
+  font-size: 12px;
+}
+
+.reserves_result_tb {
+  width: 100%;
+  line-height: 27px;
+}
+
+.reserves_result_tb th {
+  font-weight: normal;
+  text-align: left;
+  width: 27%;
+}
+
+.resarve_btn {
+  color: #fff;
+  background-color: #003ff5;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px 0 12px;
+  border: none;
+  left: 0;
+  border-radius: 0 0 5px 5px;
+  font-size: 11px;
+  cursor: pointer;
+  letter-spacing: 2px;
+}
+
+.resarve_btn:hover {
+  background-color: #0033ce;
+}
+
+.error_message {
+  margin-left: 2%;
+  vertical-align: inherit;
+}
+
+/* Thanks */
+.thanks_wrap {
+  background-color: #fff;
+  width: 340px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 6px #959595;
+  padding: 70px 0;
+  text-align: center;
+  margin: 10vh auto;
+}
+
+.thanks_txt {
+  font-size: 17px;
+}
+
+.btn_done {
+  color: #fff;
+  background-color: #003ff5;
+  margin: 30px auto 0;
+  padding: 5px 13px 5px;
+  border: none;
+  border-radius: 5px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.btn_done:hover {
+  opacity: 0.8;
+}
+
+.btn_thanks {
+  color: #fff;
+  background-color: #003ff5;
+  margin: 30px auto 0;
+  padding: 5px 13px 5px;
+  border: none;
+  border-radius: 5px;
+  font-size: 11px;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn_thanks:hover {
+  opacity: 0.8;
+}
