@@ -61,7 +61,7 @@
         <div class="reserves_result">
           <table class="reserves_result_tb">
             <tr>
-              <th>Shoth</th>
+              <th>Shop</th>
               <td>{{ $shop->name }}</td>
             </tr>
             <tr>
