@@ -31,13 +31,13 @@
   <div class="main mypage">
     <div class="my_reserve_wrap">
       <h2>予約状況</h2>
-      @foreach($reservations as $reservation)
+      @foreach($reservations as $key=>$reservation)
       <form action="{{ route('reserve.delete', ['id' => $reservation->id]) }}" method="post">
         @csrf
         <div class="reserves_card">
           <div class="reserves_card_top">
             <img src="/img/time_icon.png" alt="" class="reserves_card_time">
-            <p class="reserves_card_top_txt">予約 {{$reservation->id}}</p>
+            <p class="reserves_card_top_txt">予約 {{$key+1}}</p>
             <button class="btn_reserve_delete">
               <img src="/img/close_icon.png" alt="" class="reserves_card_close">
             </button>
@@ -49,11 +49,11 @@
             </tr>
             <tr>
               <th>Date</th>
-              <td>{{ $reservation->started_at }}</td>
+              <td>{{ \Carbon\Carbon::parse($reservation->started_at)->format('Y-m-d')}}</td>
             </tr>
             <tr>
               <th>Time</th>
-              <td>{{ $reservation->time }}</td>
+              <td>{{ \Carbon\Carbon::parse($reservation->started_at)->format('H:i') }}</td>
             </tr>
             <tr>
               <th>Number</th>

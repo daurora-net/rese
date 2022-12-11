@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 use App\Models\Shop;
 use App\Models\Area;
 use App\Models\Genre;
@@ -18,7 +19,10 @@ class ShopController extends Controller
         $areas = Area::all();
         $genres = Genre::all();
         $reserves = Reservation::all();
-        return view('index', compact('user', 'shops', 'reserves', 'areas', 'genres'));
+        return view(
+            'index',
+            compact('user', 'shops', 'reserves', 'areas', 'genres')
+        );
     }
     public function search(Request $request)
     {
@@ -33,8 +37,18 @@ class ShopController extends Controller
     }
     public function detail($id)
     {
+        $user = Auth::user();
         $shop = Shop::find($id);
-        return view('detail', compact('shop'));
+        // $reservations = Reservation::where('user_id', $user->id)->get();
+        $reservations = Reservation::all();
+        $reservations = $shop->reservations()->whereDate('started_at', '>', Carbon::now())->orderBy('started_at', 'asc')->get();
+        return view('detail', compact('user', 'shop', 'reservations'));
+    }
+    public function unsetToken($request)
+    {
+        $form = $request->all();
+        unset($form['_token']);
+        return $form;
     }
     public function favorite(Shop $shop)
     {

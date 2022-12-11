@@ -15,7 +15,6 @@ class ReserveRequest extends FormRequest
     {
         return true;
     }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -25,21 +24,19 @@ class ReserveRequest extends FormRequest
     {
         return [
             'started_at' => 'required|date|after:today',
-            'date' => 'required|date|after:today',
-            'time' => 'required|date',
             'num_of_users' => 'required|numeric',
         ];
     }
     public function messages()
     {
         return [
-            'date.required' => '日付を選択してください。',
-            'date.after' => '明日以降の日付を選択してください。',
+            'started_at.required' => '日付を選択してください。',
+            'started_at.after' => '明日以降を選択してください。',
+            'num_of_users.required' => '人数を選択してください。',
         ];
     }
     protected function prepareForValidation()
     {
-        // 日時をデータに追加
         $started_at = ($this->filled(['date', 'time'])) ? $this->date . ' ' . $this->time : '';
         $this->merge([
             'started_at' => $started_at

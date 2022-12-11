@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 use App\Models\Shop;
 use App\Models\Reservation;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -14,6 +16,7 @@ class UserController extends Controller
         $user = Auth::user();
         $shops = Shop::all();
         $reservations = Reservation::all();
+        $reservations = $user->reservations()->whereDate('started_at', '>', Carbon::now())->orderBy('started_at', 'asc')->get();
         return view('/mypage', compact('user', 'shops', 'reservations'));
     }
     public function favorite(Shop $shop)

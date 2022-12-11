@@ -42,7 +42,9 @@
         @endforeach
       </select>
       <span class="search_form_bd"></span>
-      <img src="/img/search_icon.png" alt="serch_icon" class="search_input_img">
+      <button type="submit" value="submit" class="btn_search">
+        <img src="/img/search_icon.png" alt="serch_icon">
+      </button>
       <input type="text" class="search_input" name="name" value="{{ request()->query('name') }}"
         placeholder="Search..." />
     </form>

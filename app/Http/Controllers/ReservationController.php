@@ -14,16 +14,31 @@ class ReservationController extends Controller
 {
     public function create(ReserveRequest $request)
     {
-        $form = $this->unsetToken($request);
-        $reserve = new Reservation;
-        $reserve->fill($form)->save();
-        return view('reserve/done');
-    }
-    public function unsetToken($request)
-    {
+        // $user = Auth::user();
+        // $form = $request->all();
+        // unset($form['_token']);
+        // $reserve = new Reservation;
+        // $request->user_id = $request->user()->id;
+        // $reserve->user_id = Auth::id();
+        // Reservation::create($form);
+        // $reserve->fill($form)->save();
+        // $shop = Reservation::with(['user', 'shop'])->find($reserve->id);
+        // $user = Auth::user();
+        // $reserve = Reservation::find($request->id);
+        // $form = $this->unsetToken($request);
+        // $reserve->fill($form)->save();
+        // Reservation::find($request->id)->cerate();
+        // $reserve = Reservation::find($request->id);
+        // $reserve = new Reservation;
+        // if ($reserve->user->id !== $user->id) return back();
+        // $date = strtotime($request->input('date'));
+        // dd($request->all());
+        // $user = Auth::user();
+        // $reserve = $user->reserve;
+        $reserve = Reservation::create($request->all());
         $form = $request->all();
         unset($form['_token']);
-        return $form;
+        return view('done', compact('reserve'));
     }
     public function delete(Request $request)
     {

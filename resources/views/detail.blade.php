@@ -40,43 +40,35 @@
       <p class="detail_resarve_ttl">予約</p>
       <form action="{{ route('reserve.create') }}" method="post" class="detail_resarve_form">
         @csrf
-        <input type="hidden" name="name" value="{{ $shop->name }}" />
+        <input type="hidden" name="user_id" value="{{ $user->id }}" />
+        <input type="hidden" name="shop_id" value="{{ $shop->id }}" />
         <input type="date" name="date" class="resarve_input_date" />
-        @error('date')
+        @error('started_at')
         <span class="error_message" id="Error-date">{{ $message }}</span>
         @enderror
-        <select name="time" class="time_select">
-          <option selected>17:00</option>
-          <option>18:00</option>
-          <option>19:00</option>
-          <option>20:00</option>
-        </select>
-        <select name="num_of_users" class="num_select">
-          <option selected value="1">1人</option>
-          <option value="2">2人</option>
-          <option value="3">3人</option>
-          <option value="4">4人</option>
-          <option value="5">5人</option>
-        </select>
+        <select name="time" class="time_select" id="time_select"></select>
+        <select name="num_of_users" class="num_select" id="num_select"></select>
         <div class="reserves_result">
+          @foreach($reservations as $reservation)
           <table class="reserves_result_tb">
             <tr>
               <th>Shop</th>
-              <td>{{ $shop->name }}</td>
+              <td>{{ $reservation->shop->name }}</td>
             </tr>
             <tr>
               <th>Date</th>
-              <td>{{ old('date') }}</td>
+              <td>{{ \Carbon\Carbon::parse($reservation->started_at)->format('Y-m-d')}}</td>
             </tr>
             <tr>
               <th>Time</th>
-              <td>{{ old('time') }}</td>
+              <td>{{ \Carbon\Carbon::parse($reservation->started_at)->format('H:i') }}</td>
             </tr>
             <tr>
               <th>Number</th>
-              <td>{{ old('num_of_users') }}人</td>
+              <td>{{ $reservation->num_of_users }}人</td>
             </tr>
           </table>
+          @endforeach
         </div>
         <button type="submit" class="resarve_btn">予約する</button>
       </form>
