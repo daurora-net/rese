@@ -32,36 +32,57 @@
     <div class="my_reserve_wrap">
       <h2>予約状況</h2>
       @foreach($reservations as $key=>$reservation)
-      <form action="{{ route('reserve.delete', ['id' => $reservation->id]) }}" method="post">
-        @csrf
-        <div class="reserves_card">
-          <div class="reserves_card_top">
-            <img src="/img/time_icon.png" alt="" class="reserves_card_time">
-            <p class="reserves_card_top_txt">予約 {{$key+1}}</p>
+      @foreach($shops as $shop)
+      <div class="reserves_card">
+        <div class="reserves_card_top">
+          <img src="/img/time_icon.png" alt="" class="reserves_card_time">
+          <p class="reserves_card_top_txt">予約 {{$key+1}}</p>
+          <form action="{{ route('reserve.delete', ['id' => $reservation->id]) }}" method="post">
+            @csrf
             <button class="btn_reserve_delete">
               <img src="/img/close_icon.png" alt="" class="reserves_card_close">
             </button>
-          </div>
-          <table class="reserves_card_tb">
-            <tr>
-              <th>Shop</th>
-              <td>{{ $reservation->shop->name }}</td>
-            </tr>
-            <tr>
-              <th>Date</th>
-              <td>{{ \Carbon\Carbon::parse($reservation->started_at)->format('Y-m-d')}}</td>
-            </tr>
-            <tr>
-              <th>Time</th>
-              <td>{{ \Carbon\Carbon::parse($reservation->started_at)->format('H:i') }}</td>
-            </tr>
-            <tr>
-              <th>Number</th>
-              <td>{{ $reservation->num_of_users }}人</td>
-            </tr>
-          </table>
+          </form>
         </div>
-      </form>
+        <table class="reserves_card_tb">
+          <tr>
+            <th>Shop</th>
+            <td>{{ $reservation->shop->name }}</td>
+          </tr>
+          <tr>
+            <th>Date</th>
+            <td>
+              <input type="date" name="started_at" class="update_input_date" value="{{ old('started_at',\Carbon\Carbon::parse($reservation->started_at)->format('Y-m-d')) }}" />
+            </td>
+          </tr>
+          <tr>
+            <th>Time</th>
+            <td>
+              <form action="{{ route('reserve.update', ['id' => $shop->id]) }}" method="post">
+                @csrf
+                <select name="time" class="update_time_select" id="time_select">
+                  <option value="{{ old('started_at',\Carbon\Carbon::parse($reservation->started_at)->format('H:i')) }}">{{ \Carbon\Carbon::parse($reservation->started_at)->format('H:i') }}</option>
+                </select>
+            </td>
+          </tr>
+          <tr>
+            <th>Number</th>
+            <td>
+              <select name="num_of_users" class="update_num_select" id="num_select">
+                <option value="{{ old('started_at',\Carbon\Carbon::parse($reservation->started_at)->format('H:i')) }}">{{ $reservation->num_of_users }}人</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th></th>
+            <td>
+              <button type="submit" class="btn btn-update">変更</button>
+            </td>
+          </tr>
+          </form>
+        </table>
+      </div>
+      @endforeach
       @endforeach
     </div>
     <div class="my_like_wrap">

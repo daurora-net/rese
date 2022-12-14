@@ -43,8 +43,8 @@ class Shop extends Model
         $results = $query->get();
         return $results;
     }
-    // function isSelectedArea($area_id)
-    // {
-    //     return $this->area_id == $area_id ? 'selected' : '';
-    // }
+    function isSelectedReservation($reservation_id)
+    {
+        return $this->reservation_id == $reservation_id ? 'selected' : '';
+    }
 }

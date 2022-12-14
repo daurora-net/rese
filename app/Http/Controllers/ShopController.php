@@ -44,12 +44,6 @@ class ShopController extends Controller
         $reservations = $shop->reservations()->whereDate('started_at', '>', Carbon::now())->orderBy('started_at', 'asc')->get();
         return view('detail', compact('user', 'shop', 'reservations'));
     }
-    public function unsetToken($request)
-    {
-        $form = $request->all();
-        unset($form['_token']);
-        return $form;
-    }
     public function favorite(Shop $shop)
     {
         Auth::user()->togglefavorite($shop);

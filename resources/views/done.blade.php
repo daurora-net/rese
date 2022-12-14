@@ -28,7 +28,7 @@
   <div class="main thanks">
     <div class="thanks_wrap">
       <p class="thanks_txt">ご予約ありがとうございます</p>
-      <button id="btn_back" class="btn_done">戻る</button>
+      <input value="戻る" onclick="history.back();" type="button" class="btn_done">
     </div>
   </div>
 </div>
