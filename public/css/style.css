@@ -243,7 +243,7 @@ button.btn_search {
 
 .reserves_card_tb {
   width: 100%;
-  line-height: 28px;
+  line-height: 33px;
 }
 
 .reserves_card_tb th {
@@ -269,12 +269,13 @@ button.btn_search {
 
 .reserves_card_top_txt {
   width: 80%;
+  font-size: 14px;
 }
 
 .update_input_date {
   display: inline-block;
   background-color: transparent;
-  font-size: 11px;
+  font-size: 13px;
   color: #fff;
   border-bottom: rgba(255, 255, 255, 0.522) 1px solid;
   border-top: none;
@@ -287,7 +288,7 @@ button.btn_search {
   display: block;
   width: 140px;
   padding: 5px 5px 3px 0px;
-  font-size: 11px;
+  font-size: 13px;
   border-bottom: rgba(255, 255, 255, 0.522) 1px solid;
   background-color: transparent;
   color: #fff;
@@ -328,17 +329,19 @@ button.btn_search {
   right: 10px;
   transform: translateY(-50%);
 }
+
 .btn-update {
-text-align: right;
-    float: right;
-    background: transparent;
-    border: #fff 1px solid;
-    border-radius: 12px;
-    padding: 3px 9px 4px;
-    color: #ffffff;
-    font-size: 11px;
-    cursor: pointer;
+  text-align: right;
+  float: right;
+  background: transparent;
+  border: #fff 1px solid;
+  border-radius: 12px;
+  padding: 3px 9px 4px;
+  color: #ffffff;
+  font-size: 11px;
+  cursor: pointer;
 }
+
 .btn-update:hover {
   opacity: .9;
 }
@@ -475,10 +478,12 @@ text-align: right;
   line-height: 27px;
   margin-bottom: 4%;
 }
+
 .reserves_result_tb tr {
   display: flex;
   justify-content: start;
 }
+
 .reserves_result_tb th {
   font-weight: normal;
   text-align: left;
