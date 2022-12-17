@@ -24,16 +24,19 @@ class ReservationController extends Controller
     }
     public function create(ReserveRequest $request)
     {
-        // dd($request->all());
-        $reserve = Reservation::create($request->all());
+        $reservations = Reservation::create($request->all());
         $form = $request->all();
         unset($form['_token']);
-        return view('done', compact('reserve'));
+        return view('done', compact('reservations'));
     }
     public function update(ReserveRequest $request)
     {
+        // dd($request->all());
+        // dd($request->id);
+        $form = $request->all();
         unset($form['_token']);
-        Reservation::find($request->id)->save();
+        $reservations = Reservation::find($request->id);
+        $reservations->fill($form)->save();
         return back();
     }
     public function delete(Request $request)

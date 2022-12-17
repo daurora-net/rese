@@ -18,10 +18,10 @@ class ShopController extends Controller
         $shops = Shop::all();
         $areas = Area::all();
         $genres = Genre::all();
-        $reserves = Reservation::all();
+        $reservations = Reservation::get();
         return view(
             'index',
-            compact('user', 'shops', 'reserves', 'areas', 'genres')
+            compact('user', 'shops', 'reservations', 'areas', 'genres')
         );
     }
     public function search(Request $request)
@@ -42,7 +42,12 @@ class ShopController extends Controller
         // $reservations = Reservation::where('user_id', $user->id)->get();
         $reservations = Reservation::all();
         $reservations = $shop->reservations()->whereDate('started_at', '>', Carbon::now())->orderBy('started_at', 'asc')->get();
-        return view('detail', compact('user', 'shop', 'reservations'));
+        $age_data = [
+            'young' => '10代～20代',
+            'middle' => '30代～50代',
+            'senior' => '60代以上'
+        ];
+        return view('detail', compact('user', 'shop', 'reservations', 'age_data'));
     }
     public function favorite(Shop $shop)
     {

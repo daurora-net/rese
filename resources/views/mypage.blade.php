@@ -43,7 +43,7 @@
             </button>
           </form>
         </div>
-        <form action="{{ route('reserve.update') }}" method="post">
+        <form action="{{ route('reserve.update', ['id' => $reservation->id]) }}" method="post">
           @csrf
           <table class="reserves_card_tb">
             <tr>
@@ -54,6 +54,9 @@
               <th>Date</th>
               <td>
                 <input type="date" name="date" class="update_input_date" value="{{ old('started_at',\Carbon\Carbon::parse($reservation->started_at)->format('Y-m-d')) }}" />
+                @error('started_at')
+                <span class="error_message d_block" id="Error-date">{{ $message }}</span>
+                @enderror
               </td>
             </tr>
             <tr>
@@ -70,7 +73,7 @@
               <th>Number</th>
               <td>
                 <select name="num_of_users" class="update_num_select" id="num_select">
-                  <option value="{{ old('started_at',\Carbon\Carbon::parse($reservation->started_at)->format('H:i')) }}">
+                  <option value="{{ old('num_of_users',$reservation->num_of_users) }}">
                     {{ $reservation->num_of_users }}人
                   </option>
                 </select>

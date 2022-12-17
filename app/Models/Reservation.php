@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Reservation extends Model
 {
@@ -19,5 +20,13 @@ class Reservation extends Model
     public function user()
     {
         return $this->BelongsTo(User::class);
+    }
+    protected static function booted()
+    {
+        static::addGlobalScope('user_id', function (Builder $builder) {
+
+            $user_id = auth()->id();
+            $builder->where('user_id', $user_id);
+        });
     }
 }

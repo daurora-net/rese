@@ -34,7 +34,7 @@ li {
 select {
   appearance: none;
   background-image: url(../img/arrow_icon.png);
-  background-position: right 0 center;
+  background-position: right 10px center;
   background-repeat: no-repeat;
 }
 
@@ -359,6 +359,9 @@ button.btn_search {
 
 .card_wrap.mypage_card_wrap {
   justify-content: space-between;
+}
+.d_block {
+  display: block;
 }
 
 /* Detail */
