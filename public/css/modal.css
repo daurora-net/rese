@@ -178,3 +178,13 @@ li.modal_list {
 .body_hidden {
   overflow: hidden;
 }
+
+@media screen and (max-width: 768px) {
+  .overlay_link {
+    font-size: 17px;
+  }
+
+  .overlay_ul {
+    line-height: 43px;
+  }
+}

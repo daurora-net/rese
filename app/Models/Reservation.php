@@ -11,6 +11,7 @@ class Reservation extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+    protected $dates = ['started_at'];
     protected $fillable = ['user_id', 'shop_id', 'started_at', 'num_of_users'];
 
     public function shop()
