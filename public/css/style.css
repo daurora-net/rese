@@ -683,6 +683,11 @@ button.btn_search {
     font-size: 17px;
   }
 
+  .mypage input[type="date"],
+  .update_time_select,
+  .update_num_select {
+    width: 80%;
+  }
   .reserves_card_tb td {
     font-size: 14px;
   }
@@ -703,5 +708,6 @@ button.btn_search {
 
   .reserves_card_tb th {
     font-size: 13px;
+    width: 20%;
   }
 }

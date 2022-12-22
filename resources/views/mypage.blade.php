@@ -53,8 +53,7 @@
                         <tr>
                             <th>Date</th>
                             <td>
-                                <input type="date" name="date" class="update_input_date"
-                                    value="{{ old('started_at',\Carbon\Carbon::parse($reservation->started_at)->format('Y-m-d')) }}" />
+                                <input type="date" name="date" class="update_input_date" value="{{ old('started_at',\Carbon\Carbon::parse($reservation->started_at)->format('Y-m-d')) }}" />
                                 @error('started_at')
                                 <span class="error_message d_block" id="Error-date">{{ $message }}</span>
                                 @enderror
@@ -70,7 +69,7 @@
                                     </option>
                                 </select>
 
-                                <select name="time" class="update_time_select" id="time_select">
+                                <!-- <select name="time" class="update_time_select" id="time_select">
                                     @foreach(range(0, 59, 15) as $started_at)
                                     {{ old('started_at') == $started_at ? 'selected' : '' }}
                                     <option value="{{ $started_at }}" @if ($started_at==$started_at) selected @endif>
@@ -85,7 +84,7 @@
                                         ) selected @endif>{{ $i }}
                                         </option>
                                         @endfor
-                                </select>
+                                </select> -->
 
                             </td>
                         </tr>
