@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title','Mypage')
 @section('content')
 <div class="overlay">
     <nav class="overlay_nav">
@@ -53,7 +54,8 @@
                         <tr>
                             <th>Date</th>
                             <td>
-                                <input type="date" name="date" class="update_input_date" value="{{ old('started_at',\Carbon\Carbon::parse($reservation->started_at)->format('Y-m-d')) }}" />
+                                <input type="date" name="date" class="update_input_date"
+                                    value="{{ old('started_at',$reservation->started_at->format('Y-m-d')) }}" />
                                 @error('started_at')
                                 <span class="error_message d_block" id="Error-date">{{ $message }}</span>
                                 @enderror

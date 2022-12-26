@@ -446,6 +446,98 @@ button.btn_search {
   color: #fff;
 }
 
+.review_result {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  padding: 40px 0;
+  margin-top: 50px;
+}
+
+.review_result_ttl {
+  font-weight: bold;
+  font-size: 15px;
+  display: block;
+  /* padding: 40px 0 10px;
+  margin-top: 50px; */
+}
+
+.review_result_box {
+  box-shadow: 2px 2px 4px #959595;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 10px 0;
+  background-color: #fff;
+}
+
+.review_score {
+  color: #e9a62f;
+  font-size: 18px;
+  display: inline-block;
+  max-width: 68%;
+}
+
+.review_date {
+  font-size: 11px;
+  padding-top: 3px;
+  float: right;
+}
+
+.review_comment {
+  font-size: 12px;
+}
+
+.form_comment {
+  width: 80%;
+  font-size: 14px;
+  padding: 5px 7px;
+}
+
+.review_form {
+  margin-bottom: 30px;
+  padding: 30px;
+  background-color: #c3c3c3;
+}
+
+
+.review_form_wrap {
+  padding: 40px 0;
+}
+
+.review_form_ttl {
+  font-weight: bold;
+  font-size: 13px;
+  display: block;
+  margin: 0 0 30px;
+}
+
+.review_form_txt {
+  margin: 10px 0 1px;
+  font-size: 13px;
+}
+
+.review_form .review_score {
+  color: #5c5c5c;
+  font-size: 16px;
+  display: inline-block;
+  width: 130px;
+  padding: 5px 10px;
+}
+
+.form_comment {
+  width: 83%;
+}
+
+.btn_review {
+  display: inline-block;
+  vertical-align: super;
+  padding: 0 10px;
+  margin-left: 10px;
+  height: 20px;
+  line-height: 17px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
 .resarve_input_date {
   display: inline-block;
   width: 120px;
@@ -688,6 +780,7 @@ button.btn_search {
   .update_num_select {
     width: 80%;
   }
+
   .reserves_card_tb td {
     font-size: 14px;
   }

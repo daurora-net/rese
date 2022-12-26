@@ -9,6 +9,7 @@ use App\Models\Shop;
 use App\Models\Area;
 use App\Models\Genre;
 use App\Models\Reservation;
+use App\Models\Review;
 
 class ShopController extends Controller
 {
@@ -39,15 +40,17 @@ class ShopController extends Controller
     {
         $user = Auth::user();
         $shop = Shop::find($id);
-        // $reservations = Reservation::where('user_id', $user->id)->get();
-        $reservations = Reservation::all();
+        // $reservations = Reservation::all();
+        // $reservations = Reservation::whereDate('$reservation_list', 'review_list');
+        $reviews = Review::all();
+
+        // 未来の予約のみ表示
         $reservations = $shop->reservations()->whereDate('started_at', '>', Carbon::now())->orderBy('started_at', 'asc')->get();
-        $age_data = [
-            'young' => '10代～20代',
-            'middle' => '30代～50代',
-            'senior' => '60代以上'
-        ];
-        return view('detail', compact('user', 'shop', 'reservations', 'age_data'));
+
+        // 過去の予約のみ表示
+        // $reservations = $shop->reservations()->whereDate('started_at', '<', Carbon::now())->orderBy('started_at', 'asc')->get();
+
+        return view('detail', compact('user', 'shop', 'reservations', 'reviews'));
     }
     public function favorite(Shop $shop)
     {

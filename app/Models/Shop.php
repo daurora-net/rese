@@ -24,10 +24,6 @@ class Shop extends Model
     {
         return $this->hasMany(Reservation::class);
     }
-    public function likes()
-    {
-        return $this->hasMany(Like::class);
-    }
     public static function doSearch($keyword, $area_id, $genre_id)
     {
         $query = self::query();

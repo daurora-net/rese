@@ -6,8 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Models\Shop;
-use App\Models\Area;
-use App\Models\Genre;
+use App\Models\Review;
 use App\Models\Reservation;
 use App\Http\Requests\ReserveRequest;
 
@@ -18,8 +17,11 @@ class ReservationController extends Controller
         $user = Auth::user();
         $shop = Shop::find($id);
         // $reservations = Reservation::where('user_id', $user->id)->get();
+        // $reservation_list = Reservation::all();
+        // $reservation_list = $shop->reservations()->whereDate('started_at', '>', Carbon::now())->orderBy('started_at', 'asc')->get();
+        // $reservations = Reservation::all();
         $reservations = Reservation::all();
-        $reservations = $shop->reservations()->whereDate('started_at', '>', Carbon::now())->orderBy('started_at', 'asc')->get();
+        // $reservations = Reservation::whereDate('$reservation_list', 'review_list');
         return view('mypage', compact('user', 'shop', 'reservations'));
     }
     public function create(ReserveRequest $request)

@@ -7,25 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Carbon\Carbon;
 
-class Reservation extends Model
+class Review extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
-    protected $dates = ['started_at'];
-    protected $fillable = ['user_id', 'shop_id', 'started_at', 'num_of_users'];
+    protected $guarded = array('id');
 
-    public function shop()
+    public function reservation()
     {
-        return $this->BelongsTo(Shop::class);
+        return $this->BelongsTo(Reservation::class);
     }
     public function user()
     {
         return $this->BelongsTo(User::class);
-    }
-    public function reviews()
-    {
-        return $this->hasMany(Review::class);
     }
     protected static function booted()
     {
