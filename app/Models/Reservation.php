@@ -35,16 +35,4 @@ class Reservation extends Model
             $builder->where('user_id', $user_id);
         });
     }
-    // public static function whereDate($reservation_list, $review_list)
-    // {
-    //     $query = self::query();
-    //     if (!empty($reservation_list)) {
-    //         $query->whereDate('started_at', '<', Carbon::now())->orderBy('started_at', 'asc');
-    //     }
-    //     if (!empty($review_list)) {
-    //         $query->whereDate('started_at', '>', Carbon::now())->orderBy('started_at', 'asc');
-    //     }
-    //     $results = $query->get();
-    //     return $results;
-    // }
 }

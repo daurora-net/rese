@@ -19,6 +19,7 @@ class CreatereviewsTable extends Migration
             $table->string('comment')->nullable();
             $table->foreignId('user_id');
             $table->foreignId('reservation_id');
+            $table->foreignId('shop_id');
             $table->timestamps();
         });
     }

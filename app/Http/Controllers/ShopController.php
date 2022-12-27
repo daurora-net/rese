@@ -40,13 +40,9 @@ class ShopController extends Controller
     {
         $user = Auth::user();
         $shop = Shop::find($id);
-        // $reservations = Reservation::all();
-        // $reservations = Reservation::whereDate('$reservation_list', 'review_list');
-        $reviews = Review::all();
-
         // 未来の予約のみ表示
-        $reservations = $shop->reservations()->whereDate('started_at', '>', Carbon::now())->orderBy('started_at', 'asc')->get();
-
+        $reservations = $shop->reservations()->whereDate('started_at', '>', Carbon::now())
+            ->orderBy('started_at', 'asc')->get();
         // 過去の予約のみ表示
         $review_src = $shop->reservations()->whereDate('started_at', '<', Carbon::now())
             ->whereRaw(" NOT id IN ( select reservation_id from reviews where shop_id = {$shop->id} ) ")
@@ -55,7 +51,8 @@ class ShopController extends Controller
         // Select * from reservations where started_at < CURRENT_TIME
         //                              AND NOT id IN ( select reservation_id from reviews where shop_id = $shop->id )
         // order by started_at ;
-
+        $reviews = Review::all();
+        $reviews = $shop->reviews()->orderBy('created_at', 'asc')->get();
         return view('detail', compact('user', 'shop', 'reservations', 'reviews', 'review_src'));
     }
     public function favorite(Shop $shop)

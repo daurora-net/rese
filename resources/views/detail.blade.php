@@ -54,14 +54,13 @@
                         訪問のレビューを追加</p>
                     <p class="review_form_txt">評価</p>
                     <select name="score" class="review_score">
-                        <option value="5" class="review_score">★★★★★</option>
-                        <option value="4" class="review_score">★★★★</option>
-                        <option value="3" class="review_score">★★★</option>
-                        <option value="2" class="review_score">★★</option>
-                        <option value="1" class="review_score">★</option>
+                        @foreach( __('define.shop_review') as $i => $v )
+                        <option value="{{$i}}">{{$v}}</option>
+                        @endforeach
                     </select>
                     <p class="review_form_txt">コメント</p>
                     <textarea name="comment" class="form_comment"></textarea>
+                    <input type="hidden" name="shop_id" value="{{$reservation->shop->id}}">
                     <input type="hidden" name="reservation_id" value="{{$reservation->id}}">
                     <button type="submit" class="btn btn_review">追加</button>
                 </form>
