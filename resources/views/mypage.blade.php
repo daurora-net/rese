@@ -65,38 +65,21 @@
                             <th>Time</th>
                             <td>
                                 <select name="time" class="update_time_select" id="time_select">
-                                    <!-- <option value="{{ $reservation->id }}" @if(old('reservation_id')==$reservation->id) selected @endif></option> -->
-                                    <option value="{{ old('started_at',$reservation->started_at->format('H:i')) }}">
-                                        {{ old('started_at',$reservation->started_at->format('H:i')) }}
-                                    </option>
-                                </select>
-
-                                <!-- <select name="time" class="update_time_select" id="time_select">
-                                    @foreach(range(0, 59, 15) as $started_at)
-                                    {{ old('started_at') == $started_at ? 'selected' : '' }}
-                                    <option value="{{ $started_at }}" @if ($started_at==$started_at) selected @endif>
-                                        {{ $started_at }}
-                                    </option>
+                                    @foreach( __('define.shop_times') as $i => $v )
+                                    <option value="{{$i}}" @if($i==old('started_at',$reservation->
+                                        started_at->format('H:i'))) selected @endif>{{$v}}</option>
                                     @endforeach
                                 </select>
-
-
-                                <select name="time" class="update_time_select" id="time_select">
-                                    @for ($i = 17; $i <= 21; $i++) <option value="{{ $i }}" @if(old('started_at')=="$i"
-                                        ) selected @endif>{{ $i }}
-                                        </option>
-                                        @endfor
-                                </select> -->
-
                             </td>
                         </tr>
                         <tr>
                             <th>Number</th>
                             <td>
                                 <select name="num_of_users" class="update_num_select" id="num_select">
-                                    <option value="{{ old('num_of_users',$reservation->num_of_users) }}">
-                                        {{ $reservation->num_of_users }}人
-                                    </option>
+                                    @foreach( __('define.num') as $i => $v )
+                                    <option value="{{$i}}" @if( $i==old('num_of_users',$reservation->num_of_users) )
+                                        selected @endif>{{$v}}</option>
+                                    @endforeach
                                 </select>
                             </td>
                         </tr>

@@ -17,7 +17,10 @@ class UserController extends Controller
         $shops = Shop::all();
         $reservations = Reservation::all();
         $reservations = $user->reservations()->whereDate('started_at', '>', Carbon::now())->orderBy('started_at', 'asc')->get();
-        return view('/mypage', compact('user', 'shops', 'reservations'));
+        $def['shop_times'] = __('define.shop_times');
+        $def['num'] = __('define.num');
+        //dd($def);
+        return view('/mypage', compact('user', 'shops', 'reservations', 'def'));
     }
     public function favorite(Shop $shop)
     {

@@ -47,7 +47,7 @@
                 @endforeach
             </div>
             <div class="review_form_wrap">
-                @foreach($reservations as $reservation)
+                @foreach($review_src as $reservation)
                 <form method="POST" action="{{ route('reviews.store') }}" class="review_form">
                     @csrf
                     <p class="review_form_ttl">【{{$shop->name}}】{{$reservation->started_at->format('Y年m月d日H:i')}}

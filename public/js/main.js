@@ -36,18 +36,18 @@
   // search_select.addEventListener('change', inputChange);
 
 // セレクトタグ
-var Element = document.getElementById("time_select");
-for (var i = 17; i<= 21; i++) {
-  var option = document.createElement("option");
-  option.value = i + ":00";
-  option.innerText = i + ":00";
-  Element.appendChild(option);
-}
-var Element = document.getElementById("num_select");
-for (var i = 1; i<= 5; i++) {
-  var option = document.createElement("option");
-  option.value = i;
-  option.innerText = i + "人";
-  Element.appendChild(option);
-}
+// var Element = document.getElementById("time_select");
+// for (var i = 17; i<= 21; i++) {
+//   var option = document.createElement("option");
+//   option.value = i + ":00";
+//   option.innerText = i + ":00";
+//   Element.appendChild(option);
+// }
+// var Element = document.getElementById("num_select");
+// for (var i = 1; i<= 5; i++) {
+//   var option = document.createElement("option");
+//   option.value = i;
+//   option.innerText = i + "人";
+//   Element.appendChild(option);
+// }
 
