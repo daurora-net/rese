@@ -51,3 +51,5 @@ for (var i = 1; i<= 5; i++) {
   Element.appendChild(option);
 }
 
+// 評価の平均値
+

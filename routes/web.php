@@ -5,6 +5,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\Auth;
+use App\Http\Controllers\Admin;
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/', [ShopController::class, 'index'])->name('shop.index');

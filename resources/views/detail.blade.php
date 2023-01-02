@@ -38,6 +38,9 @@
             <p class="detail_overview">{{ $shop->overview }}</p>
             <div class="review_result">
                 <h3 class="review_result_ttl">レビュー</h3>
+                @if($reviews->isEmpty())
+                <p class="empty_txt">まだレビューはありません。</p>
+                @else
                 @foreach($reviews as $review)
                 <div class="review_result_box">
                     <p class="review_score">{{ str_repeat('★', $review->score) }}</p>
@@ -45,6 +48,7 @@
                     <p class="review_comment">{{$review->comment}}</p>
                 </div>
                 @endforeach
+                @endif
             </div>
             <div class="review_form_wrap">
                 @foreach($review_src as $reservation)
