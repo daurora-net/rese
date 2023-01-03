@@ -8,6 +8,7 @@
     <title>@yield('title') | Rese</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/auth.css">
+    <link rel="stylesheet" href="/css/menu.css">
     <link rel="stylesheet" href="/css/modal.css">
 </head>
 

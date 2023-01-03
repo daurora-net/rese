@@ -1,190 +1,89 @@
-/* 
-.header_nav {
-  width: 45px;
-  height: 45px;
-  background-color: #3560F6;
-  border-radius: 7px;
-  box-shadow: 2px 2px 6px #999;
-  display: inline-block;
-  position: relative;
-  cursor: pointer;
+.btn_qr {
+    color: #3560f6;
+    padding: 10px 12px 8px;
+    border: 0;
+    font-size: 13px;
+    border-radius: 5px;
+    font-weight: bold;
+    position: relative;
+    margin-bottom: 20px;
 }
 
-.header_nav span {
-  display: inline-block;
-  transition: all .4s;
-  position: absolute;
-  left: 12px;
-  height: 1px;
-  background: #fff;
-}
-
-.header_nav span:nth-of-type(1) {
-  top: 14px;
-  width: 45%;
-}
-
-.header_nav span:nth-of-type(2) {
-  top: 22px;
-  width: 35%;
-}
-
-.header_nav span:nth-of-type(3) {
-  top: 30px;
-  width: 20%;
+.btn_qr:hover {
+    opacity: .8;
+    cursor: pointer;
 }
 
 .modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  transition: all .3s;
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgb(53 53 53 / .9);
+    ;
 }
 
-.modal_nav {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.modal-content {
+    background-color: #f4f4f4;
+    margin: 10vw auto;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+    animation-name: modalopen;
+    animation-duration: 1s;
 }
 
-li.modal_list {
-  font-size: 30px;
-  margin: 20px 0;
-} */
+@keyframes modalopen {
+    from {
+        opacity: 0
+    }
 
-
-
-
-
-
-.header_nav {
-  width: 32px;
-  height: 32px;
-  background-color: #3560F6;
-  border-radius: 5px;
-  box-shadow: 2px 2px 6px #999;
-  display: inline-block;
-  cursor: pointer;
-  position: relative;
-  z-index: 2;
+    to {
+        opacity: 1
+    }
 }
 
-.header_nav span {
-  display: inline-block;
-  transition: all .4s;
-  position: absolute;
-  left: 8px;
-  height: 1px;
-  background: #fff;
+.modal-header h1 {
+    margin: 1rem 0;
 }
 
-.sp-nav {
-  display: inline-block;
+.modal-header {
+    background: #3560f6;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* ハンバーガーの三本線 */
-.header_nav span.first-line {
-  top: 10px;
-  width: 25%;
-  transition: all .1s;
+.modal_ttl {
+    font-size: 16px;
 }
 
-.header_nav span.center-line {
-  top: 16px;
-  width: 48%;
-  transition: all .1s;
+.modalClose {
+    font-size: 21px;
 }
 
-.header_nav span.last-line {
-  top: 22px;
-  width: 13%;
-  transition: all .1s;
+.modalClose:hover {
+    cursor: pointer;
 }
 
-/* 三本線のボタンをクリック後のスタイル */
-.header_nav span.first-line.swing {
-  transform: translateY(7px) rotate(45deg);
-  top: 9px;
-  width: 50%;
+.modal-body {
+    padding: 40px 20px;
+    color: black;
+    text-align: center;
 }
 
-.header_nav span.center-line.swing {
-  opacity: 0;
+.modal_txt {
+    font-size: 16px;
+    height: 1.5em;
+    line-height: 1.5em;
+    padding-bottom: 5px;
 }
 
-.header_nav span.last-line.swing {
-  transform: translateY(-7px) rotate(-45deg);
-  top: 23px;
-  width: 50%;
-  transition: all .1s;
-}
-
-/* クリックした後出てくるメニュー */
-.overlay {
-  position: fixed;
-  top: 0;
-  /* 画面全体を覆う*/
-  left: -100%;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  /* 画面全体を覆う*/
-  background-color: #fff;
-  z-index: 1;
-  /* 三本線のボタンが出るように */
-  transition: all .3s;
-  /* アニメーションを付ける */
-}
-
-.overlay_ul {
-  width: 200px;
-  margin: 30vh auto 0;
-  text-align: center;
-  line-height: 60px;
-}
-
-.overlay_li {
-  list-style: none;
-}
-
-.overlay_link {
-  color: #3560F6;
-  text-decoration: none;
-  border: none;
-  font-size: 22px;
-  background-color: transparent;
-  font-weight: bold;
-  font-family: initial;
-  cursor: pointer;
-}
-
-.overlay_link:hover {
-  opacity: .8;
-}
-
-.overlay.swing {
-  left: 0%;
-}
-
-.body_hidden {
-  overflow: hidden;
-}
-
-@media screen and (max-width: 768px) {
-  .overlay_link {
-    font-size: 17px;
-  }
-
-  .overlay_ul {
-    line-height: 43px;
-  }
+.qr {
+    margin: 30px 0;
 }

@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Routing\Router;
-use App\Admin\Controllers\ReservationController;
+// use App\Admin\Controllers\ReservationController;
+// use App\Admin\Controllers\ShopController;
 
 Admin::routes();
 
@@ -13,4 +14,5 @@ Route::group([
 ], function (Router $router) {
     $router->get('/', 'HomeController@index')->name('home');
     $router->resource('reservations', ReservationController::class);
+    $router->resource('shops', ShopController::class);
 });

@@ -1,3 +1,4 @@
+
 // ナビゲーションボタン
 {
   const body = document.querySelector('.body');
@@ -21,6 +22,31 @@
   });
 }
 
+
+// QRコード表示
+const buttonOpen = document.getElementById('modalOpen');
+const modal = document.getElementById('easyModal');
+const buttonClose = document.getElementsByClassName('modalClose')[0];
+
+// ボタンがクリックされた時
+buttonOpen.addEventListener('click', modalOpen);
+function modalOpen() {
+  modal.style.display = 'block';
+}
+
+// バツ印がクリックされた時
+buttonClose.addEventListener('click', modalClose);
+function modalClose() {
+  modal.style.display = 'none';
+}
+
+// モーダルコンテンツ以外がクリックされた時
+addEventListener('click', outsideClose);
+function outsideClose(e) {
+  if (e.target == modal) {
+    modal.style.display = 'none';
+  }
+}
 // 前ページに戻るボタン
 // const back = document.getElementById('btn_back');
 // back.addEventListener('click', (e) => {
@@ -51,5 +77,4 @@ for (var i = 1; i<= 5; i++) {
   Element.appendChild(option);
 }
 
-// 評価の平均値
 

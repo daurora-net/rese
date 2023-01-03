@@ -1,31 +1,9 @@
 @extends('layouts.app')
 @section('title','Mypage')
 @section('content')
-<div class="overlay">
-    <nav class="overlay_nav">
-        <ul class="overlay_ul">
-            <li class="overlay_li"><a href="/" class="overlay_link">Home</a></li>
-            <li class="overlay_li">
-                <form method="post" action="/logout">
-                    @csrf
-                    <input class="overlay_link" type="submit" value="Logout">
-                </form>
-            </li>
-            <li class="overlay_li"><a href="/mypage" class="overlay_link">Mypage</a></li>
-        </ul>
-    </nav>
-</div>
+<x-overlay-nav-user />
 <div class="container">
-    <div class="header">
-        <div class="sp-nav">
-            <div class="header_nav">
-                <span class="first-line"></span>
-                <span class="center-line"></span>
-                <span class="last-line"></span>
-            </div>
-        </div>
-        <h1 class="header_ttl"><a href="/"><img src="/img/logo.png" alt=""></a></h1>
-    </div>
+    <x-header />
     <div class="card_header">
         <p class="user_name">{{ $user->name }}さん</p>
     </div>
@@ -34,6 +12,22 @@
             <h2>予約状況</h2>
             @foreach($reservations as $key=>$reservation)
             <div class="reserves_card">
+                <button id="modalOpen" class="btn_qr">QRコード表示</button>
+                <div id="easyModal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <p class="modal_ttl">予約詳細</p>
+                            <span class="modalClose">×</span>
+                        </div>
+                        <div class="modal-body">
+                            <p class="modal_txt">{{ $reservation->shop->name }}</p>
+                            <p class="modal_txt">{{ $reservation->started_at->format('Y/m/d/H:i') }}</p>
+                            <p class="modal_txt">{{ $reservation->num_of_users }}人</p>
+                            <div class="qr">{!!
+                                QrCode::size(200)->generate(url('/admin/reservations/'.$reservation->id)) !!}</div>
+                        </div>
+                    </div>
+                </div>
                 <div class="reserves_card_top">
                     <img src="/img/time_icon.png" alt="" class="reserves_card_time">
                     <p class="reserves_card_top_txt">予約 {{$key+1}}</p>
