@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Routing\Router;
-// use App\Admin\Controllers\ReservationController;
+use App\Admin\Controllers\ReservationController;
 
 Admin::routes();
 

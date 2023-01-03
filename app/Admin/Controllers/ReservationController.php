@@ -35,10 +35,10 @@ class ReservationController extends AdminController
         })->sortable();
         $grid->num_of_users('人数')->sortable();
         $grid->created_at('作成日')->display(function () {
-            return Carbon::parse($this->started_at)->format('Y/m/d/ H:i');
+            return Carbon::parse($this->created_at)->format('Y/m/d/ H:i');
         })->sortable();
         $grid->updated_at('更新日')->display(function () {
-            return Carbon::parse($this->started_at)->format('Y/m/d/ H:i');
+            return Carbon::parse($this->updated_at)->format('Y/m/d/ H:i');
         })->sortable();
 
         // $grid->filter(function ($filter) {
