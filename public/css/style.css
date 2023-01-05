@@ -667,6 +667,30 @@ button.btn_search {
   opacity: 0.8;
 }
 
+/* QRコード */
+.main.reserve {
+  margin: 10vw auto 0;
+  max-width: 300px;
+}
+
+.reserve_tb {
+  text-align: left;
+  line-height: 40px;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.reserve_tb th {
+  background-color: #dedede;
+}
+
+.reserve_tb th,
+.reserve_tb td {
+  padding: 20px;
+  font-weight: normal;
+  font-size: 15px;
+}
+
 @media screen and (max-width: 768px) {
 
   /* Common */
