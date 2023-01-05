@@ -13,7 +13,7 @@
             @foreach($reservations as $key=>$reservation)
             <div class="reserves_card">
                 <button id="modalOpen" class="btn_qr">QRコード表示</button>
-                <div id="easyModal" class="modal">
+                <div id="easyModal" class="modal_qr">
                     <div class="modal-content">
                         <div class="modal-header">
                             <p class="modal_ttl">予約詳細</p>
@@ -23,8 +23,9 @@
                             <p class="modal_txt">{{ $reservation->shop->name }}</p>
                             <p class="modal_txt">{{ $reservation->started_at->format('Y/m/d/H:i') }}</p>
                             <p class="modal_txt">{{ $reservation->num_of_users }}人</p>
-                            <div class="qr">{!!
-                                QrCode::size(200)->generate(url('/admin/reservations/'.$reservation->id)) !!}</div>
+                            <div class="qr">
+                                {!! QrCode::size(200)->generate(url('/reserve/'.$reservation->id)) !!}
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -18,5 +18,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/reserve/update', [ReservationController::class, 'update'])->name('reserve.update');
     Route::get('/mypage', [UserController::class, 'mypage'])->name('shop.mypage');
     Route::post('reserve/delete', [ReservationController::class, 'delete'])->name('reserve.delete');
+    Route::get('/reserve/{id}', [ReservationController::class, 'show'])->name('reserve.show');
 });
 require __DIR__ . '/auth.php';

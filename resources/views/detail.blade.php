@@ -59,8 +59,16 @@
                 @error('started_at')
                 <span class="error_message" id="Error-date">{{ $message }}</span>
                 @enderror
-                <select name="time" class="time_select" id="time_select"></select>
-                <select name="num_of_users" class="num_select" id="num_select"></select>
+                <select name="time" class="time_select">
+                    @foreach( __('define.shop_times') as $i => $v )
+                    <option value="{{$i}}">{{$v}}</option>
+                    @endforeach
+                </select>
+                <select name="num_of_users" class="num_select">
+                    @foreach( __('define.num') as $i => $v )
+                    <option value="{{$i}}">{{$v}}</option>
+                    @endforeach
+                </select>
                 <div class="reserves_result">
                     @foreach($reservations as $reservation)
                     <table class="reserves_result_tb">

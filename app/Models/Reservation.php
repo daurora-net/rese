@@ -29,10 +29,15 @@ class Reservation extends Model
     }
     protected static function booted()
     {
+        // if (app(PublishStatusScopeManager::class)->isActive()) {
         static::addGlobalScope('user_id', function (Builder $builder) {
-
             $user_id = auth()->id();
             $builder->where('user_id', $user_id);
         });
+        // 店舗代表者はグローバルスコープを外す
+        static::withoutGlobalScope('is_admin', function (Builder $builder) {
+            $builder->where('is_admin', false);
+        });
+        // }
     }
 }

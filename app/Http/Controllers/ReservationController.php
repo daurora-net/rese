@@ -12,6 +12,13 @@ use App\Http\Requests\ReserveRequest;
 
 class ReservationController extends Controller
 {
+    public function show($id)
+    {
+        $user = Auth::user();
+        $shop = Shop::all();
+        $reservation = Reservation::find($id);
+        return view('reserve', compact('user', 'shop', 'reservation'));
+    }
     public function create(ReserveRequest $request)
     {
         $reservations = Reservation::create($request->all());

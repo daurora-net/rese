@@ -14,7 +14,7 @@
     cursor: pointer;
 }
 
-.modal {
+.modal_qr {
     display: none;
     position: fixed;
     z-index: 10;

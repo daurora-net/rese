@@ -28,25 +28,24 @@ const buttonOpen = document.getElementById('modalOpen');
 const modal = document.getElementById('easyModal');
 const buttonClose = document.getElementsByClassName('modalClose')[0];
 
-// ボタンがクリックされた時
 buttonOpen.addEventListener('click', modalOpen);
 function modalOpen() {
   modal.style.display = 'block';
 }
 
-// バツ印がクリックされた時
 buttonClose.addEventListener('click', modalClose);
 function modalClose() {
   modal.style.display = 'none';
 }
 
-// モーダルコンテンツ以外がクリックされた時
 addEventListener('click', outsideClose);
 function outsideClose(e) {
   if (e.target == modal) {
     modal.style.display = 'none';
   }
 }
+
+
 // 前ページに戻るボタン
 // const back = document.getElementById('btn_back');
 // back.addEventListener('click', (e) => {
@@ -62,19 +61,19 @@ function outsideClose(e) {
   // search_select.addEventListener('change', inputChange);
 
 // セレクトタグ
-var Element = document.getElementById("time_select");
-for (var i = 17; i<= 21; i++) {
-  var option = document.createElement("option");
-  option.value = i + ":00";
-  option.innerText = i + ":00";
-  Element.appendChild(option);
-}
-var Element = document.getElementById("num_select");
-for (var i = 1; i<= 5; i++) {
-  var option = document.createElement("option");
-  option.value = i;
-  option.innerText = i + "人";
-  Element.appendChild(option);
-}
+// var Element = document.getElementById("time_select");
+// for (var i = 17; i<= 21; i++) {
+//   var option = document.createElement("option");
+//   option.value = i + ":00";
+//   option.innerText = i + ":00";
+//   Element.appendChild(option);
+// }
+// var Element = document.getElementById("num_select");
+// for (var i = 1; i<= 5; i++) {
+//   var option = document.createElement("option");
+//   option.value = i;
+//   option.innerText = i + "人";
+//   Element.appendChild(option);
+// }
 
 
