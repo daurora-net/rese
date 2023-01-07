@@ -684,6 +684,10 @@ button.btn_search {
   background-color: #dedede;
 }
 
+.reserve_tb td {
+  background-color: #fff;
+}
+
 .reserve_tb th,
 .reserve_tb td {
   padding: 20px;

@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Reservation;
+use App\Models\Shop;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -60,12 +61,21 @@ class ReservationController extends AdminController
         $show = new Show(Reservation::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('user_id', __('User id'));
-        $show->field('shop_id', __('Shop id'));
-        $show->field('started_at', __('Started at'));
-        $show->field('num_of_users', __('Num of users'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
+        $show->user()->name('ユーザー名');
+        $show->field('user_id', __('ユーザー名'));
+        // $show->field('started_at', __('Started at'));
+        $show->field('started_at', '予約日')->as(function () {
+            return Carbon::parse($this->started_at)->format('Y/m/d/ H:i');
+        });
+        $show->field('num_of_users', __('人数'));
+        // $show->field('created_at', __('Created at'));
+        $show->field('created_at', '更新日')->as(function () {
+            return Carbon::parse($this->created_at)->format('Y/m/d/ H:i');
+        });
+        // $show->field('updated_at', __('Updated at'));
+        $show->field('updated_at', '更新日')->as(function () {
+            return Carbon::parse($this->updated_at)->format('Y/m/d/ H:i');
+        });
 
         return $show;
     }

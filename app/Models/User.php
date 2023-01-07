@@ -10,9 +10,8 @@ use Laravel\Sanctum\HasApiTokens;
 use Overtrue\LaravelFavorite\Traits\Favoriter;
 
 // メール認証
-// class User extends Authenticatable implements MustVerifyEmail
-
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
+// class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, Favoriter;
 

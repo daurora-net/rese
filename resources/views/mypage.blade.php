@@ -24,7 +24,7 @@
                             <p class="modal_txt">{{ $reservation->started_at->format('Y/m/d/H:i') }}</p>
                             <p class="modal_txt">{{ $reservation->num_of_users }}人</p>
                             <div class="qr">
-                                {!! QrCode::size(200)->generate(url('/reserve/'.$reservation->id)) !!}
+                                {!! QrCode::size(200)->generate(url('admin/reservations/'.$reservation->id)) !!}
                             </div>
                         </div>
                     </div>

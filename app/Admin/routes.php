@@ -15,4 +15,5 @@ Route::group([
     $router->get('/', 'HomeController@index')->name('home');
     $router->resource('reservations', ReservationController::class);
     $router->resource('shops', ShopController::class);
+    $router->resource('users', UserController::class);
 });

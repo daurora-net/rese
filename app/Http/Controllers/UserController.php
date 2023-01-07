@@ -15,7 +15,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $shops = Shop::all();
-        $reservations = Reservation::all();
+        $reservations = Reservation::where('user_id', Auth::user()->id)->get();
         $reservations = $user->reservations()->whereDate('started_at', '>', Carbon::now())->orderBy('started_at', 'asc')->get();
         $def['shop_times'] = __('define.shop_times');
         $def['num'] = __('define.num');
