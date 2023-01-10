@@ -5,7 +5,6 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ReviewController;
-use App\Http\Controllers\PDFController;
 use App\Http\Controllers\Auth;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Auth\EmailVerificationController;
@@ -23,7 +22,6 @@ Route::group(['middleware' => ['verified']], function () {
     Route::get('/mypage', [UserController::class, 'mypage'])->name('shop.mypage');
     Route::post('reserve/delete', [ReservationController::class, 'delete'])->name('reserve.delete');
     Route::get('/reserve/{id}', [ReservationController::class, 'show'])->name('reserve.show');
-    // Route::get('/pdf/{id}', [PDFController::class, 'show'])->name('pdf.show');
 });
 
 // verified
