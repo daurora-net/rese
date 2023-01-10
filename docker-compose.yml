@@ -20,6 +20,7 @@ services:
             XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
         volumes:
             - '.:/var/www/html'
+            maildir: {}
         networks:
             - sail
         depends_on:
@@ -34,3 +35,15 @@ services:
 networks:
     sail:
         driver: bridge
+
+#メールサーバのコンテナ
+mail:
+  image: mailhog/mailhog
+  container_name: mailhog
+  ports:
+    - "8025:8025"
+  environment:
+    MH_STORAGE: maildir
+    MH_MAILDIR_PATH: /tmp
+    volumes:
+        - maildir:/tmp

@@ -3,11 +3,13 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Shop;
+use App\Models\Area;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class ShopController extends AdminController
 {
@@ -53,14 +55,22 @@ class ShopController extends AdminController
     {
         $show = new Show(Shop::findOrFail($id));
 
-        $show->field('id', __('Id'));
-        $show->field('area_id', __('Area id'));
-        $show->field('genre_id', __('Genre id'));
-        $show->field('name', __('Name'));
-        $show->field('overview', __('Overview'));
-        $show->field('image_url', __('Image url'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
+        $show->id('id');
+        $show->area('地域')->as(function ($area) {
+            return $area->name;
+        });
+        $show->genre('ジャンル')->as(function ($genre) {
+            return $genre->name;
+        });
+        $show->name('店舗名');
+        $show->overview('店舗概要');
+        $show->image_url('画像URL');
+        $show->created_at('作成日')->as(function () {
+            return Carbon::parse($this->created_at)->format('Y/m/d/ H:i');
+        });
+        $show->updated_at('更新日')->as(function () {
+            return Carbon::parse($this->updated_at)->format('Y/m/d/ H:i');
+        });
 
         return $show;
     }
@@ -74,11 +84,23 @@ class ShopController extends AdminController
     {
         $form = new Form(new Shop());
 
-        $form->number('area_id', __('Area id'));
-        $form->number('genre_id', __('Genre id'));
-        $form->text('name', __('Name'));
-        $form->text('overview', __('Overview'));
-        $form->text('image_url', __('Image url'));
+        $form->display('name', '店舗名');
+        $areas = [
+            1  => '東京都',
+            2  => '大阪府',
+            3  => '福岡県',
+        ];
+        $form->select('area_id', '地域')->options($areas);
+        $genres = [
+            1  => '寿司',
+            2  => '焼肉',
+            3  => '居酒屋',
+            4  => 'イタリアン',
+            5  => 'ラーメン',
+        ];
+        $form->select('genre_id', 'ジャンル')->options($genres);
+        $form->text('overview', '店舗概要');
+        $form->text('image_url', '画像URL');
 
         return $form;
     }

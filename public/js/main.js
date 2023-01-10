@@ -44,6 +44,26 @@ function outsideClose(e) {
     modal.style.display = 'none';
   }
 }
+// for (let i = 0; i < buttonOpen.length; i++ ) {
+
+//   buttonOpen[i].addEventListener('click', modalOpen);
+//   function modalOpen() {
+//     modal[i].style.display = 'block';
+//   }
+  
+//   buttonClose.addEventListener('click', modalClose);
+//   function modalClose() {
+//     modal.style.display = 'none';
+//   }
+  
+//   addEventListener('click', outsideClose);
+//   function outsideClose(e) {
+//     if (e.target == modal) {
+//       modal.style.display = 'none';
+//     }
+//   }
+// }
+
 
 
 // 前ページに戻るボタン

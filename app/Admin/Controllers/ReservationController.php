@@ -60,20 +60,21 @@ class ReservationController extends AdminController
     {
         $show = new Show(Reservation::findOrFail($id));
 
-        $show->field('id', __('Id'));
-        $show->user()->name('ユーザー名');
-        $show->field('user_id', __('ユーザー名'));
-        // $show->field('started_at', __('Started at'));
-        $show->field('started_at', '予約日')->as(function () {
+        $show->id('id');
+        $show->user('ユーザー名')->as(function ($user) {
+            return $user->name;
+        });
+        $show->shop('店舗名')->as(function ($shop) {
+            return $shop->name;
+        });
+        $show->started_at('予約日')->as(function () {
             return Carbon::parse($this->started_at)->format('Y/m/d/ H:i');
         });
-        $show->field('num_of_users', __('人数'));
-        // $show->field('created_at', __('Created at'));
-        $show->field('created_at', '更新日')->as(function () {
+        $show->num_of_users('人数');
+        $show->created_at('作成日')->as(function () {
             return Carbon::parse($this->created_at)->format('Y/m/d/ H:i');
         });
-        // $show->field('updated_at', __('Updated at'));
-        $show->field('updated_at', '更新日')->as(function () {
+        $show->updated_at('更新日')->as(function () {
             return Carbon::parse($this->updated_at)->format('Y/m/d/ H:i');
         });
 
@@ -89,10 +90,10 @@ class ReservationController extends AdminController
     {
         $form = new Form(new Reservation());
 
-        $form->number('user_id', __('User id'));
-        $form->number('shop_id', __('Shop id'));
-        $form->datetime('started_at', __('Started at'))->default(date('Y-m-d H:i:s'));
-        $form->number('num_of_users', __('Num of users'));
+        $form->display('user_id', 'ユーザー');
+        $form->display('shop_id', '店舗');
+        $form->datetime('started_at', '予約日')->default(date('Y/m/d/ H:i'));
+        $form->number('num_of_users', '人数');
 
         return $form;
     }

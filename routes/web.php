@@ -12,7 +12,7 @@ use App\Http\Controllers\Auth\EmailVerificationController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['verified']], function () {
     Route::get('/', [ShopController::class, 'index'])->name('shop.index');
     Route::get('/search', [ShopController::class, 'search'])->name('shop.search');
     Route::get('/{shop}/favorite', [ShopController::class, 'favorite'])->name('shop.favorite');
@@ -27,23 +27,24 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 // verified
+// auth
 // メール確認の通知
 // メール確認のハンドラ
 // メール確認の再送信
-// Route::get('/email/verify', function () {
-//     return view('auth.verify-email');
-// })->middleware('auth')->name('verification.notice');
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
 
-// Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-//     $request->fulfill();
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
 
-//     return redirect('/home');
-// })->middleware(['auth', 'signed'])->name('verification.verify');
+    return redirect('/home');
+})->middleware(['auth', 'signed'])->name('verification.verify');
 
-// Route::post('/email/verification-notification', function (Request $request) {
-//     $request->user()->sendEmailVerificationNotification();
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
 
-//     return back()->with('message', 'Verification link sent!');
-// })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 require __DIR__ . '/auth.php';
