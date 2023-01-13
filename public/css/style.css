@@ -33,7 +33,7 @@ li {
 
 select {
   appearance: none;
-  background-image: url(../img/arrow_icon.png);
+  background-image: url(../images/arrow_icon.png);
   background-position: right 10px center;
   background-repeat: no-repeat;
 }
@@ -318,7 +318,7 @@ button.btn_search {
 
 .mypage input[type="date"]::after {
   content: '';
-  background-image: url(../img/cal_icon.png);
+  background-image: url(../images/cal_icon.png);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 0 0;
