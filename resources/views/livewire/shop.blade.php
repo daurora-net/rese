@@ -23,7 +23,7 @@
         <span class="last-line"></span>
       </div>
     </div>
-    <h1 class="header_ttl"><a href="/"><img src="/img/logo.png" alt=""></a></h1>
+    <h1 class="header_ttl"><a href="/"><img src="/images/logo.png" alt=""></a></h1>
   </div>
   <div class="search">
     <form action="{{ route('shop.search') }}" method="get" class="serch_form">
@@ -42,9 +42,8 @@
         @endforeach
       </select>
       <span class="search_form_bd"></span>
-      <img src="/img/search_icon.png" alt="serch_icon" class="search_input_img">
-      <input type="text" class="search_input" name="name" value="{{ request()->query('name') }}"
-        placeholder="Search..." />
+      <img src="/images/search_icon.png" alt="serch_icon" class="search_input_img">
+      <input type="text" class="search_input" name="name" value="{{ request()->query('name') }}" placeholder="Search..." />
     </form>
   </div>
   <div class="main shop">
@@ -59,11 +58,11 @@
           <a href="{{ route('shop.detail', [ 'id'=>$shop->id ] ) }}" class="card_link">詳しく見る</a>
           @if($shop->isFavoritedBy(Auth::user()))
           <a href="{{ route('shop.favorite', $shop) }}">
-            <img src="/img/like.png" class="like_icon">
+            <img src="/images/like.png" class="like_icon">
           </a>
           @else
           <a href="{{ route('shop.favorite', $shop) }}">
-            <img src="/img/unlike.png" class="like_icon">
+            <img src="/images/unlike.png" class="like_icon">
           </a>
           @endif
         </div>
