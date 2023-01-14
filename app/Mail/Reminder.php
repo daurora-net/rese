@@ -2,7 +2,7 @@
 
 namespace App\Mail;
 
-use App\Models\User;
+use App\Models\Reservation;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -12,16 +12,17 @@ class Reminder extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
-    public User $user;
+    // public User $user;
+    public Reservation $reservation;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct(Reservation $reservation)
     {
-        $this->user = $user;
+        $this->reservation = $reservation;
     }
 
     /**
