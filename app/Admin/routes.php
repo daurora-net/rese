@@ -11,7 +11,9 @@ Route::group([
     'as'            => config('admin.route.prefix') . '.',
 ], function (Router $router) {
     $router->get('/', 'HomeController@index')->name('home');
+    $router->get('/users/mail', 'UserController@mail')->name('user.mail');
     $router->resource('reservations', ReservationController::class);
     $router->resource('shops', ShopController::class);
     $router->resource('users', UserController::class);
+    // $router->resource('mails', MailController::class);
 });

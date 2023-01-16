@@ -7,6 +7,10 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Illuminate\Support\Facades\Auth;
+use Encore\Admin\Layout\Content;
+use Encore\Admin\Controllers\Mail;
+use App\Mail\SendMail;
 
 class UserController extends AdminController
 {
@@ -76,5 +80,30 @@ class UserController extends AdminController
         $form->text('remember_token', __('Remember token'));
 
         return $form;
+    }
+
+    public function mail(Content $content)
+    {
+        return $content
+            ->title('Mail')
+            ->description('SendMail...')
+            ->row(Mail::form());
+    }
+    public function sendMail($user, $content)
+    {
+
+        // メール送信に必要なデータを取得
+        $user = User::get();
+
+        //送信先や名前をセット
+        $to = [
+            [
+                'email' => $user->email,
+                'name' => $user->name . '様',
+            ]
+        ];
+
+        //メール送信処理
+        Mail::to($to)->send(new SendMail($user, $content));
     }
 }
