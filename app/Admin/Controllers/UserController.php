@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Controllers\Mail;
 use App\Mail\SendMail;
+use Illuminate\Support\Facades\Mail as LaravelMail;
 
 class UserController extends AdminController
 {
@@ -33,12 +34,13 @@ class UserController extends AdminController
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
         $grid->column('email', __('Email'));
-        // $grid->column('email_verified_at', __('Email verified at'));
-        // $grid->column('password', __('Password'));
-        // $grid->column('remember_token', __('Remember token'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
-
+        $grid->tools(function ($tools) {
+            $tools->append("
+            <a href='/admin/users/mail' class='btn btn-sm btn-success'>メール送信</a>
+            ");
+        });
         return $grid;
     }
 
@@ -55,9 +57,6 @@ class UserController extends AdminController
         $show->field('id', __('Id'));
         $show->field('name', __('Name'));
         $show->field('email', __('Email'));
-        // $show->field('email_verified_at', __('Email verified at'));
-        // $show->field('password', __('Password'));
-        // $show->field('remember_token', __('Remember token'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -82,28 +81,21 @@ class UserController extends AdminController
         return $form;
     }
 
-    public function mail(Content $content)
+    public function mail()
     {
-        return $content
-            ->title('Mail')
-            ->description('SendMail...')
-            ->row(Mail::form());
+
+        // return $content
+        //     ->title('Mail')
+        //     ->description('SendMail...');
+        // ->row(Mail::form());
+        return view('email.send');
     }
-    public function sendMail($user, $content)
+
+    public function sendMail()
     {
-
-        // メール送信に必要なデータを取得
-        $user = User::get();
-
-        //送信先や名前をセット
-        $to = [
-            [
-                'email' => $user->email,
-                'name' => $user->name . '様',
-            ]
-        ];
-
-        //メール送信処理
-        Mail::to($to)->send(new SendMail($user, $content));
+        $users = User::all();
+        foreach ($users as $user) {
+            LaravelMail::to($user->email)->send(new SendMail($user));
+        }
     }
 }
