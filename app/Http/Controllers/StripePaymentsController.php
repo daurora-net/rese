@@ -22,39 +22,28 @@ class StripePaymentsController extends Controller
 
     public function payment(Request $request)
     {
-
         try {
-            Stripe::setApiKey(env('STRIPE_SECRET')); //①
+            Stripe::setApiKey(env('STRIPE_SECRET'));
 
-            //ここで顧客情報を登録②
-            $customer = Customer::create(
-                array(
-                    'email' => $request->stripeEmail,
-                    'source' => $request->stripeToken
-                )
-            );
+            $customer = Customer::create(array(
+                'email' => $request->stripeEmail,
+                'source' => $request->stripeToken
+            ));
 
-            dump($customer);
-            dump($customer->id);
-            //お支払い処理③
-            $charge = Charge::create(
-                array(
-                    'customer' => $customer->id,
-                    'amount' => 100,
-                    'currency' => 'jpy',
-                )
-            );
-            // dump($charge);
-            // dump($charge->source->id);
-            // dump($charge->source->brand);
-            // dump($charge->source->last4);
-            // dump($charge->source->exp_month);
-            // dump($charge->source->exp_year);
+            $charge = Charge::create(array(
+                'customer' => $customer->id,
+                'amount' => 100,
+                'currency' => 'jpy'
+            ));
 
-            return "COMPLETE";
+            return redirect()->route('payment.complete');
         } catch (Exception $e) {
-
             return $e->getMessage();
         }
+    }
+
+    public function complete()
+    {
+        return view('payment/complete');
     }
 }
