@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth;
 use App\Http\Controllers\Admin;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
+use App\Http\Controllers\StripePaymentsController;
 
 // verified
 Route::group(['middleware' => ['verified']], function () {
@@ -23,5 +24,8 @@ Route::group(['middleware' => ['verified']], function () {
     Route::get('/mypage', [UserController::class, 'mypage'])->name('shop.mypage');
     Route::post('reserve/delete', [ReservationController::class, 'delete'])->name('reserve.delete');
     Route::get('/reserve/{id}', [ReservationController::class, 'show'])->name('reserve.show');
+    Route::get('/payment/{id}', [StripePaymentsController::class, 'index'])->name('payment.index');
+    Route::post('/payment', [StripePaymentsController::class, 'payment'])->name('payment.post');
+    Route::get('/payment', [StripePaymentsController::class, 'done'])->name('payment.done');
 });
 require __DIR__ . '/auth.php';
