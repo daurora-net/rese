@@ -192,7 +192,7 @@ button.btn_search {
 }
 
 .main.mypage {
-  margin-top: 4%;
+  margin-top: 3%;
   display: flex;
   justify-content: space-between;
 }
@@ -621,17 +621,19 @@ button.btn_search {
 /* verify-email */
 .verify_wrap {
   background-color: #fff;
-    max-width: 600px;
-    border-radius: 5px;
-    box-shadow: 2px 2px 6px #959595;
-    padding: 70px 20px;
-    text-align: center;
-    margin: 20vh auto;
+  max-width: 600px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 6px #959595;
+  padding: 70px 20px;
+  text-align: center;
+  margin: 20vh auto;
 }
+
 .verify_txt {
   font-size: 15px;
   padding-bottom: 10px;
 }
+
 .btn_verify {
   color: #fff;
   background-color: #003ff5;
@@ -645,9 +647,11 @@ button.btn_search {
   cursor: pointer;
   width: 100px;
 }
+
 .btn_verify:hover {
   opacity: .8;
 }
+
 /* Thanks */
 .thanks_wrap {
   background-color: #fff;

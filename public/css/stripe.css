@@ -1,6 +1,32 @@
 /* stripe */
+.btn_stripe_link {
+	color: #3560f6;
+	padding: 3px 12px 3px;
+	border: 0;
+	font-size: 12px;
+	border-radius: 5px;
+	font-weight: bold;
+	position: relative;
+	background: #fff;
+	text-decoration: none;
+	display: inline-block;
+}
+
+.btn_stripe_link_done {
+	color: #3560f6;
+	padding: 3px 12px 3px;
+	border: 0;
+	font-size: 12px;
+	border-radius: 5px;
+	font-weight: bold;
+	position: relative;
+	background: rgb(220, 220, 220);
+	text-decoration: none;
+	display: inline-block;
+}
+
 .MyCardElement {
-	height: 40px;
+	height: 20px;
 	padding: 10px 12px;
 	width: 100%;
 	color: #32325d;
@@ -10,16 +36,58 @@
 	box-shadow: 0 1px 3px 0 #e6ebf1;
 	-webkit-transition: box-shadow 150ms ease;
 	transition: box-shadow 150ms ease;
-  }
+}
 
-  .MyCardElement--focus {
+.MyCardElement--focus {
 	box-shadow: 0 1px 3px 0 #cfd7df;
-  }
+}
 
-  .MyCardElement--invalid {
+.MyCardElement--invalid {
 	border-color: #fa755a;
-  }
+}
 
-  .MyCardElement--webkit-autofill {
+.MyCardElement--webkit-autofill {
 	background-color: #fefde5 !important;
-  }
+}
+
+.MyNameElement {
+	height: 20px;
+	padding: 10px 12px;
+	width: 100%;
+	color: #32325d;
+	background-color: white;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	box-shadow: 0 1px 3px 0 #e6ebf1;
+	-webkit-transition: box-shadow 150ms ease;
+	transition: box-shadow 150ms ease;
+	margin-bottom: 10px;
+}
+
+.main.stripe {
+	margin: 7vw auto 0;
+	max-width: 500px;
+}
+
+.stripe_ttl {
+	font-size: 18px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.btn_stripe {
+	color: #fff;
+	background-color: #003ff5;
+	margin: 30px auto 0;
+	padding: 8px 20px 8px;
+	border: none;
+	border-radius: 5px;
+	font-size: 12px;
+	display: block;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.btn_stripe:hover {
+	opacity: 0.8;
+}
