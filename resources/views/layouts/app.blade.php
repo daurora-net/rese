@@ -10,11 +10,12 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/auth.css">
   <link rel="stylesheet" href="/css/modal.css">
+  <link rel="stylesheet" href="/css/stripe.css" >
 </head>
 
 <body class="body">
   @yield('content')
-  <script src="/js/main.js"></script>
 </body>
-
+<script src="/js/main.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
 </html>

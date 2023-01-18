@@ -24,8 +24,10 @@ Route::group(['middleware' => ['verified']], function () {
     Route::get('/mypage', [UserController::class, 'mypage'])->name('shop.mypage');
     Route::post('reserve/delete', [ReservationController::class, 'delete'])->name('reserve.delete');
     Route::get('/reserve/{id}', [ReservationController::class, 'show'])->name('reserve.show');
-    Route::get('/payment/{id}', [StripePaymentsController::class, 'index'])->name('payment.index');
-    Route::post('/payment', [StripePaymentsController::class, 'payment'])->name('payment');
-    Route::get('/payment/complete', [StripePaymentsController::class, 'complete'])->name('payment.complete');
+    // Route::get('/payment/{id}', [StripePaymentsController::class, 'index'])->name('payment.index');
+    // Route::post('/payment', [StripePaymentsController::class, 'payment'])->name('payment');
+    // Route::get('/payment/complete', [StripePaymentsController::class, 'complete'])->name('payment.complete');
+    Route::get('/subscription', [StripePaymentsController::class, 'subscription'])->name('stripe.subscription');
+    Route::post('/subscription/afterpay', [StripePaymentsController::class, 'afterpay'])->name('stripe.afterpay');
 });
 require __DIR__ . '/auth.php';
