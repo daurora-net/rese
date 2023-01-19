@@ -248,11 +248,13 @@ button.btn_search {
 .reserves_card_tb th {
   font-weight: normal;
   text-align: left;
-  width: 27%;
+  width: 33%;
+  font-size: 14px;
 }
 
 .reserves_card_tb td {
   margin-left: 20%;
+  font-size: 14px;
 }
 
 .reserves_card_top {
