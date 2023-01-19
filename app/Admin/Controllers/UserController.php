@@ -7,11 +7,10 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
-use Illuminate\Support\Facades\Auth;
 use Encore\Admin\Layout\Content;
-use Encore\Admin\Controllers\Mail;
-use App\Mail\SendMail;
-use Illuminate\Support\Facades\Mail as LaravelMail;
+use Encore\Admin\Widgets\Tab;
+use App\Admin\Forms\SendMailToAll;
+use App\Admin\Forms\SendMailToIndividual;
 
 class UserController extends AdminController
 {
@@ -36,10 +35,10 @@ class UserController extends AdminController
         $grid->column('email', __('Email'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
+
         $grid->tools(function ($tools) {
-            $tools->append("
-            <a href='/admin/users/mail' class='btn btn-sm btn-success'>メール送信</a>
-            ");
+            $route = route('admin.send.mail');
+            $tools->append("<a class='btn btn-sm btn-success' href='$route'>メール作成</a>");
         });
         return $grid;
     }
@@ -81,21 +80,17 @@ class UserController extends AdminController
         return $form;
     }
 
-    public function mail()
+    public function sendMail(Content $content)
     {
+        //タブなし
+        // return $content->title('Write mail')->body(new SendMailToAll());
 
-        // return $content
-        //     ->title('Mail')
-        //     ->description('SendMail...');
-        // ->row(Mail::form());
-        return view('email.send');
-    }
+        // タブあり
+        $forms = [
+            'All' => SendMailToAll::class,
+            'Individual' => SendMailToIndividual::class,
+        ];
 
-    public function sendMail()
-    {
-        $users = User::all();
-        foreach ($users as $user) {
-            LaravelMail::to($user->email)->send(new SendMail($user));
-        }
+        return $content->title('Write mail')->body(Tab::forms($forms));
     }
 }
