@@ -50,7 +50,8 @@
                                         <select name="time" class="update_time_select">
                                             @foreach (__('define.shop_times') as $i => $v)
                                                 <option value="{{ $i }}"
-                                                    @if ($i == old('started_at', $reservation->started_at->format('H:i'))) selected @endif>{{ $v }}
+                                                    @if ($i == old('started_at', $reservation->started_at->format('H:i'))) selected @endif>
+                                                    {{ $v }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -62,7 +63,8 @@
                                         <select name="num_of_users" class="update_num_select">
                                             @foreach (__('define.num') as $i => $v)
                                                 <option value="{{ $i }}"
-                                                    @if ($i == old('num_of_users', $reservation->num_of_users)) selected @endif>{{ $v }}
+                                                    @if ($i == old('num_of_users', $reservation->num_of_users)) selected @endif>
+                                                    {{ $v }}
                                                 </option>
                                             @endforeach
                                         </select>

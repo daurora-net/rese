@@ -23,7 +23,7 @@ class ReserveRequest extends FormRequest
     public function rules()
     {
         return [
-            'started_at' => 'required|date|after:today',
+            'started_at' => 'required|date|after:tomorrow',
             'num_of_users' => 'required|numeric',
         ];
     }
