@@ -78,7 +78,6 @@
                         </table>
                         <a href="{{ route('reserve.show', ['id' => $reservation->id]) }}" class="btn_qr"
                             target="_blank">QRコード表示</a>
-                        {{-- <a href="{{ route('payment.index', [ 'id'=>$reservation->id ] ) }}" class="btn_qr" target="_blank">決済へ進む</a> --}}
                     </div>
                 @endforeach
             </div>
