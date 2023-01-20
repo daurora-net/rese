@@ -1,56 +1,56 @@
 /* Auth */
 .auth_container {
-  width: 380px;
-  max-width: 90%;
-  margin: 22vh auto 0;
-  box-shadow: 2px 2px 6px #999;
-  border-radius: 7px;
+    width: 380px;
+    max-width: 90%;
+    margin: 22vh auto 0;
+    box-shadow: 2px 2px 6px #999;
+    border-radius: 7px;
 }
 
 .auth_ttl {
-  background-color: #3560F6;
-  border-radius: 5px 5px 0 0;
-  color: #fff;
-  padding: 20px;
-  padding: 15px 20px 15px;
+    background-color: #3560F6;
+    border-radius: 5px 5px 0 0;
+    color: #fff;
+    padding: 20px;
+    padding: 15px 20px 15px;
 }
 
 .auth_form {
-  background-color: #fff;
-  border-radius: 0 0 7px 7px;
-  padding: 15px 30px 18px;
-  line-height: 43px;
+    background-color: #fff;
+    border-radius: 0 0 7px 7px;
+    padding: 15px 30px 18px;
+    line-height: 43px;
 }
 
 .auth_input {
-  border: none;
-  border-bottom: 1px solid #000;
-  width: 88%;
-  font-size: 16px;
-  padding: 0 0 1px 2px;
+    border: none;
+    border-bottom: 1px solid #000;
+    width: 88%;
+    font-size: 16px;
+    padding: 0 0 1px 2px;
 }
 
 ::placeholder {
-  color: #a2a2a2;
+    color: #a2a2a2;
 }
 
 .auth_icon {
-  vertical-align: middle;
-  padding-right: 3px;
+    vertical-align: middle;
+    padding-right: 3px;
 }
 
 .auth_btn {
-  display: block;
-  margin: 15px 1px 0 auto;
-  background-color: #3560F6;
-  color: #fff;
-  padding: 6px 16px;
-  border: none;
-  border-radius: 5px;
-  font-size: 12px;
+    display: block;
+    margin: 15px 1px 0 auto;
+    background-color: #3560F6;
+    color: #fff;
+    padding: 6px 16px;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
 }
 
 .auth_btn:hover {
-  opacity: .8;
-  cursor: pointer;
+    opacity: .8;
+    cursor: pointer;
 }
