@@ -12,7 +12,12 @@
                     <button id="btn_back" class="btn_back">﹤</button>
                     <h2 class="detail_shop_name">{{ $shop->name }}</h2>
                 </div>
-                <img src="{{ $shop->image_url }}" alt="" class="detail_shop_img">
+                {{-- <img src="{{ $shop->image_url }}" alt="" class="detail_shop_img"> --}}
+                @if ($shop->image !== '')
+                    <img src="../{{ 'storage/' . $shop->image }}" class="detail_shop_img">
+                @else
+                    <img src="{{ $shop->image_url }}" alt="" class="detail_shop_img">
+                @endif
                 <p class="detail_area">#{{ $shop->area->name }}</p>
                 <p class="detail_genre">#{{ $shop->genre->name }}</p>
                 <p class="detail_overview">{{ $shop->overview }}</p>

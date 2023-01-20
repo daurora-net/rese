@@ -19,7 +19,8 @@ class CreateShopsTable extends Migration
             $table->foreignId('genre_id');
             $table->string('name');
             $table->string('overview');
-            $table->string('image_url');
+            $table->string('image_url')->nullable();
+            $table->string('image')->nullable()->default('');
             $table->timestamps();
         });
     }

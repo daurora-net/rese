@@ -32,7 +32,11 @@
             <div class="card_wrap">
                 @foreach ($shops as $shop)
                     <div class="card">
-                        <img src="{{ $shop->image_url }}" alt="" class="card_img">
+                        @if ($shop->image)
+                            <img src="{{ 'storage/' . $shop->image }}" class="card_img">
+                        @else
+                            <img src="{{ $shop->image_url }}" alt="" class="card_img">
+                        @endif
                         <div class="card_txt">
                             <p class="card_name">{{ $shop->name }}</p>
                             <p class="card_area">#{{ $shop->area->name }}</p>

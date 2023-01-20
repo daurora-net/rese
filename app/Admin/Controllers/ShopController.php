@@ -3,6 +3,8 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Shop;
+use App\Models\Area;
+use App\Models\Genre;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -33,6 +35,7 @@ class ShopController extends AdminController
         $grid->name('店舗名')->sortable();
         $grid->overview('店舗概要')->sortable();
         $grid->image_url('画像URL');
+        $grid->image('Image')->image();
         $grid->created_at('作成日')->display(function () {
             return Carbon::parse($this->created_at)->format('Y/m/d/ H:i');
         })->sortable();
@@ -63,6 +66,7 @@ class ShopController extends AdminController
         $show->name('店舗名');
         $show->overview('店舗概要');
         $show->image_url('画像URL');
+        $show->image('Image')->image();
         $show->created_at('作成日')->as(function () {
             return Carbon::parse($this->created_at)->format('Y/m/d/ H:i');
         });
@@ -83,23 +87,11 @@ class ShopController extends AdminController
         $form = new Form(new Shop());
 
         $form->text('name', '店舗名');
-        $areas = [
-            1  => '東京都',
-            2  => '大阪府',
-            3  => '福岡県',
-        ];
-        $form->select('area_id', '地域')->options($areas);
-        $genres = [
-            1  => '寿司',
-            2  => '焼肉',
-            3  => '居酒屋',
-            4  => 'イタリアン',
-            5  => 'ラーメン',
-        ];
-        $form->select('genre_id', 'ジャンル')->options($genres);
+        $form->select('area_id', __('地域'))->options(Area::all()->pluck('name', 'id'));
+        $form->select('genre_id', __('ジャンル'))->options(Genre::all()->pluck('name', 'id'));
         $form->text('overview', '店舗概要');
         $form->text('image_url', '画像URL');
-
+        $form->image('image', __('Image'));
         return $form;
     }
 }
