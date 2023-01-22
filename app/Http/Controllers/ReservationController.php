@@ -23,6 +23,7 @@ class ReservationController extends Controller
     {
         $reservations = Reservation::create($request->all());
         $form = $request->all();
+        $form['started_at'] = implode($form['started_at']);
         unset($form['_token']);
         return view('done', compact('reservations'));
     }
@@ -31,6 +32,8 @@ class ReservationController extends Controller
         // dd($request->all());
         // dd($request->id);
         $form = $request->all();
+        $form['started_at'] = implode($form['started_at']);
+        // dd($form);
         unset($form['_token']);
         $reservations = Reservation::find($request->id);
         $reservations->fill($form)->save();

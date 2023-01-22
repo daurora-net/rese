@@ -37,9 +37,9 @@
                                 <tr>
                                     <th>Date</th>
                                     <td>
-                                        <input type="date" name="date" class="update_input_date"
+                                        <input type="date" name="date[{{ $key }}]" class="update_input_date"
                                             value="{{ old('started_at', $reservation->started_at->format('Y-m-d')) }}" />
-                                        @error('started_at')
+                                        @error("started_at.$key")
                                             <span class="error_message d_block" id="Error-date">{{ $message }}</span>
                                         @enderror
                                     </td>
@@ -76,8 +76,8 @@
                                         <button type="submit" class="btn btn-update">変更</button>
                                     </td>
                                 </tr>
+                            </table>
                         </form>
-                        </table>
                         <a href="{{ route('reserve.show', ['id' => $reservation->id]) }}" class="btn_qr"
                             target="_blank">QRコード表示</a>
                     </div>
