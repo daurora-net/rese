@@ -47,10 +47,6 @@ class ShopController extends Controller
         $review_src = $shop->reservations()->whereDate('started_at', '<', Carbon::now())
             ->whereRaw(" NOT id IN ( select reservation_id from reviews where shop_id = {$shop->id} ) ")
             ->orderBy('started_at', 'asc')->where('user_id', Auth::user()->id)->get();
-        // Select * from reservations where started_at < CURRENT_TIME order by started_at ;
-        // Select * from reservations where started_at < CURRENT_TIME
-        //                              AND NOT id IN ( select reservation_id from reviews where shop_id = $shop->id )
-        // order by started_at ;
         $reviews = Review::all();
         $reviews = $shop->reviews()->orderBy('created_at', 'asc')->get();
         return view('detail', compact('user', 'shop', 'reservations', 'reviews', 'review_src'));

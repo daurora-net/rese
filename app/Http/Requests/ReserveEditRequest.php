@@ -41,7 +41,6 @@ class ReserveEditRequest extends FormRequest
         foreach ($this->get('date') as $key => $value) {
             $started_at[$key] = ($this->filled(["date.$key", 'time'])) ? $value . ' ' . $this->time : '';
         }
-        // dd($started_at);
         $this->merge([
             'started_at' => $started_at
         ]);
