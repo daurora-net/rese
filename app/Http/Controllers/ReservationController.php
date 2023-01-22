@@ -8,7 +8,8 @@ use Carbon\Carbon;
 use App\Models\Shop;
 use App\Models\Review;
 use App\Models\Reservation;
-use App\Http\Requests\ReserveRequest;
+use App\Http\Requests\ReserveNewRequest;
+use App\Http\Requests\ReserveEditRequest;
 
 class ReservationController extends Controller
 {
@@ -19,15 +20,14 @@ class ReservationController extends Controller
         $reservation = Reservation::find($id);
         return view('reserve', compact('user', 'shop', 'reservation'));
     }
-    public function create(ReserveRequest $request)
+    public function create(ReserveNewRequest $request)
     {
         $reservations = Reservation::create($request->all());
         $form = $request->all();
-        $form['started_at'] = implode($form['started_at']);
         unset($form['_token']);
         return view('done', compact('reservations'));
     }
-    public function update(ReserveRequest $request)
+    public function update(ReserveEditRequest $request)
     {
         // dd($request->all());
         // dd($request->id);
