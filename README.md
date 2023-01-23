@@ -15,29 +15,33 @@ git clone https://github.com/daurora-net/rese.git
 ```
 cp .env.example .env
 ```
-## 3. .envファイルにDB設定追加、MAIL設定変更
+## 3. .envファイル修正・追加
 ```
+# URL修正
 APP_URL=http://127.0.0.1:8000
 
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
+# DB情報修正
 DB_DATABASE=resedb
-DB_USERNAME=root
 DB_PASSWORD=root
 
+# メール情報修正
 MAIL_HOST=localhost
 MAIL_FROM_ADDRESS=info@mailhog.com（なんでも可）
+
+# Stripe情報追加
+STRIPE_KEY=pk_test_51MRB5nGpaB91XJcoSQk7cuteIyLVLkGFgQ90askDiUKNYJJKlIoa4Tprkcec4cXOnQOGxx4AFjMmhXfMrvGav7nq00M1iQSsRw
+STRIPE_SECRET=sk_test_51MRB5nGpaB91XJcovPH4OT8j69f4zlBQLsZdgBadoLSpKp4OYjFwXdIvlR0pqPSZrk6Zb3jQlBF7lL26EeUrXvrP00aBzmftzp
+STRIPE_BASIC_ID=price_1MRH0eGpaB91XJco1lPc3xxh
 ```
 ## 4. composer install
 ```
 composer install
 ```
-## 5. アプリケーションキーの生成
+## 5. アプリケーションキー生成
 ```
 php artisan key:generate
 ```
-## 6. ローカルサーバーを起動
+## 6. ローカルサーバー起動
 ## 7. 【MySQL】 ログイン
 ```
 mysql -u root -p
@@ -50,7 +54,7 @@ CREATE DATABASE resedb;
 ```
 php artisan migrate:fresh --seed
 ```
-## . 開発サーバーを起動
+## . 開発サーバー起動
 ```
 php artisan serve
 
@@ -190,6 +194,7 @@ PW: shop.member
 # シンボリックリンクを作成
 php artisan storage:link
 ```
+# 管理画面から画像アップロード
 ```
 # 管理画面、店舗ページ
 http://127.0.0.1:8000/admin/shops
@@ -222,12 +227,60 @@ http://127.0.0.1:8025/
 # 動作確認の日付を適宜変更
 INSERT INTO reservations(id, user_id, shop_id, started_at, num_of_users) VALUES(20, 1, 1, 20230125200000, 2);
 
+# rese/app/Console/Kernel.php
+# 動作確認のため以下を変更
 
+# before
+->dailyAt('10:00');
+# after
+->everyMinute();
+
+# リマインダーを送信させる
+php artisan schedule:run
+
+#Mailhogで確認
+http://127.0.0.1:8025/
+```
+## QRコード
+```
+# マイページ
+http://127.0.0.1:8000/mypage
+
+# 予約状況の「QRコード表示」ボタンをクリック
+# QRコード表示ページへ遷移される
+http://127.0.0.1:8000/reserve{id}
+```
+## 決済機能
+```
+# マイページ
+http://127.0.0.1:8000/mypage
+
+# ユーザー名の下「有料会員登録へ」ボタンをクリック
+# 入力画面へ遷移するので、内容入力
+http://127.0.0.1:8000/subscription
+
+# お名前：（自由）
+# カード番号:4242 4242 4242 4242
+# 月/年/CVC:（自由）
+
+# 「送信」をクリックでマイページへ戻る 
+# stripeサイト（テスト環境）で入金確認
+https://dashboard.stripe.com/login
+
+# メールアドレス:daurora.net@gmail.com
+# パスワード:wen0606110483
+```
+## テストコード
+# 【MySQL】 テスト用のデータベース作成
+create database test_resedb;
+
+# テスト用のenvファイル作成
+cp .env .env.testing
+```
+.env.testingファイルを修正
 ```
 
-- QRコード
-- 決済機能
-- テストコード
+```
 
 ---
 
