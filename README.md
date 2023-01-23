@@ -85,7 +85,7 @@ php artisan serve
 http://127.0.0.1:8000/
 ```
 
-# アカウント（テストユーザー）
+### アカウント（テストユーザー）
 
 ```
 Username: test_user
@@ -362,7 +362,7 @@ https://dashboard.stripe.com/login
 
 ## テストコード
 
-# テスト内容: ユーザー登録画面表示、登録後の画面遷移までの結果
+### テスト内容: ユーザー登録画面表示、登録後の画面遷移までの結果
 
 ```
 # 【MySQL】 テスト用のデータベース作成
@@ -383,11 +383,14 @@ php artisan key:generate --env=testing
 # テストを実行
 php artisan test --filter RegistrationTest
 ```
-
 ## テーブル設計
-
+![スクリーンショット 2023-01-20 13 15 25](https://user-images.githubusercontent.com/93467733/214115415-99778bbc-08d2-4ddc-bfc6-0df49fb03af9.png)
+![スクリーンショット 2023-01-20 13 15 45](https://user-images.githubusercontent.com/93467733/214115434-78c2654f-ec22-4aa5-a491-1f4d0099a071.png)
+![admin1](https://user-images.githubusercontent.com/93467733/214115447-26740e8f-514e-484b-a457-2d98fba47217.png)
+![admin2](https://user-images.githubusercontent.com/93467733/214115468-97fb1aeb-b49d-48c4-a042-791893f99dd4.png)
+![スクリーンショット 2023-01-24 2 57 01](https://user-images.githubusercontent.com/93467733/214115489-dc5bf2fe-dd40-494a-bc81-2d46d2d2c547.png)
 ---
 
 ## ER 図
-
+![rese dio](https://user-images.githubusercontent.com/93467733/214115148-cef20dee-0541-4aec-b416-f5ca088ebcd6.png)
 ---
