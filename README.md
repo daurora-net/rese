@@ -1,13 +1,13 @@
-# アプリケーション名
+# Rese
+- 会員専用の飲食店予約サイト
 
-## 「Rese」
+## 作成した目的
+- 模擬案件として作成
 
 # 使用技術（実行環境）
-
 -   Laravel8.83.23(PHPv7.3.29)
 
 # 環境構築方法
-
 ## 前提条件
 
 -   PHP、Composer インストール済
@@ -362,7 +362,7 @@ https://dashboard.stripe.com/login
 
 ## テストコード
 
-### テスト内容: ユーザー登録画面表示、登録後の画面遷移までの結果
+テスト内容: ユーザー登録画面表示、登録後の画面遷移までの結果
 
 ```
 # 【MySQL】 テスト用のデータベース作成
@@ -383,6 +383,7 @@ php artisan key:generate --env=testing
 # テストを実行
 php artisan test --filter RegistrationTest
 ```
+
 ## テーブル設計
 ![スクリーンショット 2023-01-20 13 15 25](https://user-images.githubusercontent.com/93467733/214115415-99778bbc-08d2-4ddc-bfc6-0df49fb03af9.png)
 ![スクリーンショット 2023-01-20 13 15 45](https://user-images.githubusercontent.com/93467733/214115434-78c2654f-ec22-4aa5-a491-1f4d0099a071.png)
