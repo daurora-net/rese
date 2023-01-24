@@ -1,4 +1,5 @@
-# Rese
+# アプリケーション名
+### Rese
 - 会員専用の飲食店予約サイト
 ![toppage](https://user-images.githubusercontent.com/93467733/214284426-7a93eb75-2851-49fc-9aaf-d20c8f8546f6.png)
 
@@ -7,6 +8,9 @@
 
 # 使用技術（実行環境）
 -   Laravel8.83.23(PHPv7.3.29)
+-   
+# アプリケーションURL
+### http://54.178.230.50/
 
 # 環境構築方法
 ## 前提条件
