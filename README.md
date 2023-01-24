@@ -1,5 +1,6 @@
 # Rese
 - 会員専用の飲食店予約サイト
+![toppage](https://user-images.githubusercontent.com/93467733/214284426-7a93eb75-2851-49fc-9aaf-d20c8f8546f6.png)
 
 ## 作成した目的
 - 模擬案件として作成
@@ -270,11 +271,13 @@ php artisan storage:link
 
 ```
 # 店舗代表者でログイン
+http://127.0.0.1:8000/admin
 ID: shop.member
 PW: shop.member
 
 # もしくは..
 # 管理者でログイン
+http://127.0.0.1:8000/admin
 ID: admin
 PW: admin
 
@@ -289,6 +292,7 @@ http://127.0.0.1:8000/admin/shops
 
 ```
 # 管理者でログイン
+http://127.0.0.1:8000/admin
 ID: admin
 PW: admin
 
@@ -307,6 +311,7 @@ http://127.0.0.1:8025/
 ```
 # テスト用の予約1件シーディング済み（予約日はnow指定）
 # アカウントはテストユーザーでログイン
+http://127.0.0.1:8000/
 Email: test@example.com
 Password: test123456789
 
@@ -355,7 +360,7 @@ http://127.0.0.1:8000/subscription
 
 # 「送信」をクリックで決済完了、マイページへリダイレクトされる
 # stripeサイト（テスト環境）で入金確認
-https://dashboard.stripe.com/login
+https://dashboard.stripe.com/test/payments
 メールアドレス:daurora.net@gmail.com
 パスワード:wen0606110483
 ```
