@@ -393,6 +393,17 @@ php artisan key:generate --env=testing
 php artisan test --filter RegistrationTest
 ```
 
+## AWS
+```
+デプロイ済みURL
+http://54.178.230.50/
+```
+
+## 環境の切り分け
+```
+開発環境と本番環境の切り分け済み
+```
+
 ## テーブル設計
 ![スクリーンショット 2023-01-20 13 15 25](https://user-images.githubusercontent.com/93467733/214115415-99778bbc-08d2-4ddc-bfc6-0df49fb03af9.png)
 ![スクリーンショット 2023-01-20 13 15 45](https://user-images.githubusercontent.com/93467733/214115434-78c2654f-ec22-4aa5-a491-1f4d0099a071.png)
