@@ -7,7 +7,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\StripePaymentsController;
 
-Route::group(['middleware' => ['verified']], function () {
+Route::group(['middleware' => ['auth']], function () {
     Route::get('/', [ShopController::class, 'index'])->name('shop.index');
     Route::get('/search', [ShopController::class, 'search'])->name('shop.search');
     Route::get('/{shop}/favorite', [ShopController::class, 'favorite'])->name('shop.favorite');

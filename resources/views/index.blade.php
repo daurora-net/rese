@@ -22,7 +22,7 @@
                 </select>
                 <span class="search_form_bd"></span>
                 <button type="submit" value="submit" class="btn_search">
-                    <img src="/images/search_icon.png" alt="serch_icon">
+                    <img src="images/search_icon.png" alt="serch_icon">
                 </button>
                 <input type="text" class="search_input" name="name" value="{{ request()->query('name') }}"
                     placeholder="Search..." />
@@ -44,11 +44,11 @@
                             <a href="{{ route('shop.detail', ['id' => $shop->id]) }}" class="card_link">詳しく見る</a>
                             @if ($shop->isFavoritedBy(Auth::user()))
                                 <a href="{{ route('shop.favorite', $shop) }}">
-                                    <img src="/images/like.png" class="like_icon">
+                                    <img src="images/like.png" class="like_icon">
                                 </a>
                             @else
                                 <a href="{{ route('shop.favorite', $shop) }}">
-                                    <img src="/images/unlike.png" class="like_icon">
+                                    <img src="images/unlike.png" class="like_icon">
                                 </a>
                             @endif
                         </div>

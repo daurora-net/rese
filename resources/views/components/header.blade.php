@@ -6,5 +6,5 @@
             <span class="last-line"></span>
         </div>
     </div>
-    <h1 class="header_ttl"><a href="/"><img src="/images/logo.png" alt=""></a></h1>
+    <h1 class="header_ttl"><a href="{{ url('/') }}"><img src="{{ url('/images/logo.png') }}" alt=""></a></h1>
 </div>

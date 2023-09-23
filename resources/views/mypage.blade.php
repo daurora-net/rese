@@ -18,12 +18,12 @@
                 @foreach ($reservations as $key => $reservation)
                     <div class="reserves_card">
                         <div class="reserves_card_top">
-                            <img src="/images/time_icon.png" alt="" class="reserves_card_time">
+                            <img src="images/time_icon.png" alt="" class="reserves_card_time">
                             <p class="reserves_card_top_txt">予約 {{ $key + 1 }}</p>
                             <form action="{{ route('reserve.delete', ['id' => $reservation->id]) }}" method="post">
                                 @csrf
                                 <button class="btn_reserve_delete">
-                                    <img src="/images/close_icon.png" alt="" class="reserves_card_close">
+                                    <img src="images/close_icon.png" alt="" class="reserves_card_close">
                                 </button>
                             </form>
                         </div>
@@ -96,7 +96,7 @@
                                     <p class="card_genre">#{{ $shop->genre->name }}</p>
                                     <a href="{{ route('shop.detail', ['id' => $shop->id]) }}" class="card_link">詳しく見る</a>
                                     <a href="{{ route('shop.favorite', $shop) }}">
-                                        <img src="/images/like.png" class="like_icon">
+                                        <img src="images/like.png" class="like_icon">
                                     </a>
                                 </div>
                             </div>

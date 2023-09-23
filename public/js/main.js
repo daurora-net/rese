@@ -22,11 +22,11 @@
 }
 
 // 前ページに戻るボタン
-// const back = document.getElementById('btn_back');
-// back.addEventListener('click', (e) => {
-// history.back();
-// return false;
-// });
+const back = document.getElementById('btn_back');
+back.addEventListener('click', (e) => {
+history.back();
+return false;
+});
 
 // リアルタイム検索
   // function inputChange(event) {
